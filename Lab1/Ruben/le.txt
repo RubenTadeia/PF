@@ -1,0 +1,6 @@
+
+Abre o ficheiro definicoes.png
+
+Lê a ultima linha e verifica que as definições estão correctas!
+
+→ All recordings should be done at 16kHz, linear 16 bits per sample, mono (example)
