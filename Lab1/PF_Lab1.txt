@@ -1,0 +1,30 @@
+Notas da Professora:
+
+F_0 = 1 / T_0
+
+T_0 = 4 ms
+
+F_0 = 250 Hz
+
+
+Audacity → Tracks → Convert Stereo to mono → Export
+
+
+1 second → 16000
+3 seconds → x
+
+
+x = (3 * 16000) / 2 bytes per sample
+
+FFT = Fast Fourier Transform
+
+
+
+Spectrum section ( botão do lado direito) → Permite escolher modos e tirar snapshots
+
+Formant Plot → A professora vai pedir isto com as vogais.
+
+
+# → Silence
+
+Create Pane → Transcription → To get the .lab files
