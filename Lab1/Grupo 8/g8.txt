@@ -19,3 +19,23 @@
 |       6.00        |      6.55      |  cinco  |
 |       6.55        |      7.10      |  quatro |
  ==============================================
+
+
+
+
+Comentários Adicionais:
+
+	→ O nosso processo de identificação dos digitos, consistiu na reutilização de exemplos dados na aula teórica (Resolução do Teste Passado);
+
+	→ Um algoritmo utilizado pelo grupo para desvendar o digito foi a análise da banda de frequências em que os sons aparecem e também a observação
+	 de padrões de zonas mais claras e outras zonas mais escuras;
+
+	→ Alguns números foram facilmente identificados ao ínicio, como é o caso do número 1 dada a sua alta frequência;
+
+	→ O número 6 foi diferenciado de outros por não apresentar espectro nas baixas frequências;
+
+	→ O dois foi detectado através do 'd' mudo inicial;
+
+	→ Os dois digitos que sobraram levaram algumas dúvidas ao grupo. Estes foram os digitos 8 e 4. O que permitiu remover as dúvidas foi a análise
+	 minuciosa do espectrograma destes 2 digitos com exemplos gravados pelos elementos do grupo assim não obstante da comparação dos mesmos digitos
+	 exemplos com os exemplos dados no teste resolvido em aula;
