@@ -10,7 +10,7 @@
 
 
 
-				g8b.png
+		g8b.png
  ______________________________________________
 | Tempo início (s)  | Tempo fim (s)  | Número  |
 |       3.90        |      4.60      |  dois   |
@@ -27,15 +27,13 @@ Comentários Adicionais:
 
 	→ O nosso processo de identificação dos digitos, consistiu na reutilização de exemplos dados na aula teórica (Resolução do Teste Passado);
 
-	→ Um algoritmo utilizado pelo grupo para desvendar o digito foi a análise da banda de frequências em que os sons aparecem e também a observação
+	→ Um algoritmo utilizado pelo grupo para desvendar o dígito foi a análise da banda de frequências em que os sons aparecem e também a observação
 	de padrões de zonas mais claras e outras zonas mais escuras;
 
-	→ Alguns números foram facilmente identificados ao ínicio, como é o caso do número 1 dada a sua alta frequência;
+	→ Alguns números foram facilmente identificados ao início, como é o caso do número 1 dada a sua alta frequência;
 
 	→ O número 6 foi diferenciado de outros por não apresentar espectro nas baixas frequências;
 
-	→ Tendo em conta os 6 plosives (p,t,k,b,d,g) e os 6 fricatives (f,s,S,v,z,Z) tanto unvoiced como voiced, conseguimos identificar partes de digitos e fazendo por hipótese de exclusão de partes, conseguimos chegar a um digito. Como é o exemplo do número dois, que foi detectado através do 'd' mudo (unvoiced) inicial;
+	→ Tendo em conta os 6 plosives (p,t,k,b,d,g) e os 6 fricatives (f,s,S,v,z,Z) tanto unvoiced como voiced, conseguimos identificar partes de dígitos e fazendo por hipótese de exclusão de partes, conseguimos chegar a um dígito. Como é o exemplo do número dois, que foi detectado através do 'd' mudo (unvoiced) inicial;
 
-	→ Os dois digitos que sobraram levaram algumas dúvidas ao grupo. Estes foram os digitos 8 e 4. O que permitiu remover as dúvidas foi a análise
-	minuciosa do espectrograma destes 2 digitos com exemplos gravados pelos elementos do grupo assim não obstante da comparação dos mesmos digitos
-	exemplos com os exemplos dados no teste resolvido em aula;
+	→ Os dois dígitos que sobraram levantaram algumas dúvidas no grupo. Estes foram os dígitos 8 e 4. O que permitiu remover as dúvidas foi a análise minuciosa do espectrograma destes 2 dígitos com exemplos gravados pelos elementos do grupo. Não obstante da comparação dos mesmos dígitos com os exemplos dados no teste resolvido em aula;
