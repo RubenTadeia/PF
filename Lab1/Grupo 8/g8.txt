@@ -1,4 +1,4 @@
-				g8a.png
+		g8a.png
  ___________________________________________
 | Tempo início (s) | Tempo fim (s) | Número |
 |       0.4        |      1.1      |  três  |
