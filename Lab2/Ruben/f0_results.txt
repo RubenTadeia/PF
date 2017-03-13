@@ -1,0 +1,2 @@
+Average F0 (wavesurfer):	Hz
+Average F0 (autocorr.): 	Hz
