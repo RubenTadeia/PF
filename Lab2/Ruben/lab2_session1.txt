@@ -1,0 +1,7 @@
+Matlab Functions
+
+	→ lpc_covar
+	→ lpc_auto
+
+Target: Ficheiro vowels_75268.wav
+	00.270 184.96
