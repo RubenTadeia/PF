@@ -1,0 +1,7 @@
+Calculamos a frequência f0 através dos periodos. De um até ao outro.
+
+No ponto em que pede para usarmos o WaveSurfer → Usamos Pitch Contour
+
+E selecionamos de um periodo até outro e este resultado chama-se Periodo.
+
+Depois o que nós queremos é a frequência. Logo é 1 / Periodo anterior.
