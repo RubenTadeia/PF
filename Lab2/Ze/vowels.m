@@ -1,6 +1,6 @@
 %load handel.mat
 clc
-filename = 'vowels_75255.wav';
+filename = '@.wav';
 %audiowrite(filename,y,Fs);
 START = 0.025;
 END = 0.636;
