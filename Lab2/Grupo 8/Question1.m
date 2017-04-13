@@ -20,13 +20,18 @@ clc
 %This parameters are hardcoded and they are not the same for different students
 window_length = 0.06;
 interval_size = 0.02; %The interval of the window - 20ms
+
+%For Student 75255
 max_pitch = 130; %Max value for f0
 min_pitch = 90;  %Lowest value for f0
+%For Student 75268
+% max_pitch = 350; %Max value for f0
+% min_pitch = 70;  %Lowest value for f0
 
 threshold = 0.30; %This is the value we choose in order for f0 to have
 %Close Values
 
-% [input,sampling_frequency] = audioread('birthdate_75255.wav');
+[input,sampling_frequency] = audioread('birthdate_75255.wav');
 % [input,sampling_frequency] = audioread('birthdate_75268.wav');
 % [input,sampling_frequency] = audioread('@_75255.wav');
 % [input,sampling_frequency] = audioread('@_75268.wav');
@@ -74,7 +79,7 @@ for i=1:interval_samples:(size(input,1)-samples)
 end
 
 %Creating an exit to write our results
-% outputFile = fopen('birthdate_75255.myf0','w');
+outputFile = fopen('birthdate_75255.myf0','w');
 % outputFile = fopen('birthdate_75268.myf0','w');
 % outputFile = fopen('@_75255.myf0','w');
 % outputFile = fopen('@_75268.myf0','w');
