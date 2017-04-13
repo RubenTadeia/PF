@@ -19,11 +19,11 @@ clc
 
 %This parameters are hardcoded and they are not the same for different students
 window_length = 0.06;
-interval_size = 0.02; %The interval of the window
-max_pitch = 360; %Max value for f0
-min_pitch = 60;  %Lowest value for f0
+interval_size = 0.02; %The interval of the window - 20ms
+max_pitch = 130; %Max value for f0
+min_pitch = 90;  %Lowest value for f0
 
-threshold = 0.36; %This is the value we choose in order for f0 to have
+threshold = 0.30; %This is the value we choose in order for f0 to have
 %Close Values
 
 [input,sampling_frequency] = audioread('birthdate_75255.wav');
@@ -81,4 +81,4 @@ end
 fclose(outputFile);
 
 % calculate mean of pitch
-pitch_mean = sum(pitch)/sum(pitch ~= 0);
+pitch_mean = sum(pitch)/sum(pitch ~= 0)

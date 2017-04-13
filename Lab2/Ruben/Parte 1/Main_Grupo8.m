@@ -14,6 +14,11 @@
 %% Welcome Menu
 clear all; close all;clc
 
+%Caminho Relativo da toolbox Voice Box
+currentFolder = pwd;
+voiceBoxPath = strcat(currentFolder,'\voiceBox\');
+
+addpath(genpath(voiceBoxPath));
 userOption = 0;
 
 while(userOption ~= 4)

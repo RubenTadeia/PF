@@ -15,4 +15,3 @@ autoMean = myMean(myf0FileName);
 fprintf(fout, 'Average F0 (autocorr.): %f Hz\n', autoMean);
 
 fclose(fout);
-clc
