@@ -1,10 +1,22 @@
-[x, ~] = audioread('birthdate_75255.wav');
+clear
+[x, FS] = audioread('birthdate_75255_voiced.wav');
+x
+
 %autocorr(x),
-RHO = corr(x),
-figure,
-[acf, lags, bounds] = autocorr(x);
+%RHO = xcorr(x),
+%plot(RHO),
+%figure,
+b = zeros(1, FS);
+w = rectwin(FS);
+y = b.*w;
+ola = xcorr(x, x);
+plot(ola)
+[Y, I] = max(ola);
+Y
+figure
+[acf, lags, bounds] = autocorr(x)
 plot(acf)
-[Y, I] = max(acf),
+[Y, I] = max(acf)
 
 %%
 %load handel.mat
