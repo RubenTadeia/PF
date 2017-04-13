@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%          Instituto Superior Técnico          % 
+%          Instituto Superior Técnico          %
 %                                              %
 %             Speech Processing                %
 %                                              %
@@ -14,6 +14,11 @@
 %% Welcome Menu
 clear all; close all;clc
 
+%Caminho Relativo da toolbox Voice Box
+currentFolder = pwd;
+voiceBoxPath = strcat(currentFolder,'\voiceBox\');
+
+addpath(genpath(voiceBoxPath));
 userOption = 0;
 
 while(userOption ~= 4)
@@ -29,10 +34,3 @@ while(userOption ~= 4)
    userOption = input('Your Option - ');
    handler(userOption);
 end
-
-%% Part 1 - Fundamental Frequency Estimation
-
-%% Part 2 - Linear Prediction using Octave/Matlab
-
-%% Part 3 - Vocoder Simulation
-
