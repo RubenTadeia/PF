@@ -89,5 +89,5 @@
     end
     tt=0.8*tt/max(max(abs(tt)));
     [rtt,ctt]=size(tt); if rtt==2, tt=tt'; end
-    %audiowrite(tt,sr,16,outfile); Bug nesta linha
+    %audiowrite(tt,sr,16,outfile); Quero comparar com ficheiros de saída de outros
     fclose('all');

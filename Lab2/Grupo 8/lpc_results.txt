@@ -45,8 +45,8 @@ Window Interval - 20ms
 Prediction Order - 16
 Energy in the residual: 1.4305
 
-Comparing the results obtain for the energy of the residual: 
-  - for the same values of window length and interval, the energy is smaller for a lower prediction order.
-  - When window length and interval are the closest and are the biggest, that's when the residual energy is the smallest
-If the residual energy is the smallest, the resynthesized signal will be more identical to the original signal. 
-
+Comparing the results obtained for the energy of the residual: 
+  - Considering the same values of window length and interval, the energy of the residual is smaller for a lower prediction order.
+  - When the values for window length and interval are the closest and the biggest(20ms), that's when the residual energy is the smallest
+If the residual energy is the smallest, the resynthesized signal will be more identical to the original signal, meaning that we will have 
+a weaker residual.
