@@ -1,14 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%          Instituto Superior Técnico          %
+%          Instituto Superior Tï¿½cnico          %
 %                                              %
 %             Speech Processing                %
 %                                              %
-%               Laboratório - 2                %
+%               Laboratï¿½rio - 2                %
 %                                              %
 %                  Grupo 8                     %
 %                                              %
-%      Student - José  Diogo    - Nº 75255     %
-%      Student - Rúben Tadeia   - Nº 75268     %
+%      Student - Josï¿½  Diogo    - Nï¿½ 75255     %
+%      Student - Rï¿½ben Tadeia   - Nï¿½ 75268     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Part 1 - Fundamental Frequency Estimation
@@ -26,8 +26,10 @@ min_pitch = 90;  %Lowest value for f0
 threshold = 0.30; %This is the value we choose in order for f0 to have
 %Close Values
 
-%[input,sampling_frequency] = audioread('birthdate_75255.wav');
-%[input,sampling_frequency] = audioread('birthdate_75268.wav');
+% [input,sampling_frequency] = audioread('birthdate_75255.wav');
+% [input,sampling_frequency] = audioread('birthdate_75268.wav');
+% [input,sampling_frequency] = audioread('@_75255.wav');
+% [input,sampling_frequency] = audioread('@_75268.wav');
 
 
 interval_samples = round(interval_size * sampling_frequency);
@@ -72,8 +74,11 @@ for i=1:interval_samples:(size(input,1)-samples)
 end
 
 %Creating an exit to write our results
-%outputFile = fopen('birthdate_75268.myf0','w');
-outputFile = fopen('birthdate_75255.myf0','w');
+% outputFile = fopen('birthdate_75255.myf0','w');
+% outputFile = fopen('birthdate_75268.myf0','w');
+% outputFile = fopen('@_75255.myf0','w');
+% outputFile = fopen('@_75268.myf0','w');
+
 
 for i=1:size(pitch,2)
     %Write new line in myf0 file!
