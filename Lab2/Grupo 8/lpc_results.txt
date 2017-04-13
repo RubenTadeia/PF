@@ -1,4 +1,4 @@
-A análise descrita foi realizada para o ficheiro birthdate_75255.wav
+The following analysis was made from birthdate_75255.wav file
 
 Window Length - 20ms
 Window Interval - 10ms
@@ -44,4 +44,9 @@ Window Length - 20ms
 Window Interval - 20ms
 Prediction Order - 16
 Energy in the residual: 1.4305
+
+Comparing the results obtain for the energy of the residual: 
+  - for the same values of window length and interval, the energy is smaller for a lower prediction order.
+  - When window length and interval are the closest and are the biggest, that's when the residual energy is the smallest
+If the residual energy is the smallest, the resynthesized signal will be more identical to the original signal. 
 
