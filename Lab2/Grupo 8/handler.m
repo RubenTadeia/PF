@@ -17,12 +17,12 @@ switch(user_input)
    case 2 % Part 2 - Linear Prediction using Octave/Matlab   
       
       fprintf('Part 2 - Linear Prediction using Octave/Matlab\n');
-      
+      Question2;
       
    case 3 % Part 3 - Vocoder Simulation
       
       fprintf('Part 3 - Vocoder Simulation\n');
-      
+      Question3;
       
    case 4 % Exit Program
       fprintf('Welcome come again! :)\n');

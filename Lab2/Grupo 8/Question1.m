@@ -26,8 +26,9 @@ min_pitch = 90;  %Lowest value for f0
 threshold = 0.30; %This is the value we choose in order for f0 to have
 %Close Values
 
-[input,sampling_frequency] = audioread('birthdate_75255.wav');
+%[input,sampling_frequency] = audioread('birthdate_75255.wav');
 %[input,sampling_frequency] = audioread('birthdate_75268.wav');
+
 
 interval_samples = round(interval_size * sampling_frequency);
 samples = round(window_length * sampling_frequency);
