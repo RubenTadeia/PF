@@ -1,2 +1,2 @@
-Average F0 (wavesurfer): 49.712209 Hz
-Average F0 (autocorr.): 50.122807 Hz
+Average F0 (wavesurfer): 112.997948 Hz
+Average F0 (autocorr.): 112.987377 Hz
