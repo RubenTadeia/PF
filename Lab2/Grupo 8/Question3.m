@@ -1,12 +1,17 @@
-% This implements a phase vocoder for time-stretching/compression
-% Put the file name of the input file in "infile"
-%     the file to be created is "outfile"
-% The amount of time-stretch is determined by the ratio of the hopin
-% and hopout variables. For example, hopin=242 and hopout=161.3333
-% (integers are not required) increases the tempo by 
-% hopin/hopout = 1.5. To slow down a comparable amount,
-% choose hopin = 161.3333, hopout = 242.
-% 5/2005 Bill Sethares
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          Instituto Superior Técnico          %
+%                                              %
+%             Speech Processing                %
+%                                              %
+%               Laboratório - 2                %
+%                                              %
+%                  Grupo 8                     %
+%                                              %
+%      Student - José  Diogo    - Nº 75255     %
+%      Student - Rúben Tadeia   - Nº 75268     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Part 3 - Vocoder Simulation
 
     clear; clf
     infile='birthdate_75268.wav';

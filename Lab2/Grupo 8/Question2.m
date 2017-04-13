@@ -1,4 +1,17 @@
-% Part 2 - autocorrelation method
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          Instituto Superior Técnico          %
+%                                              %
+%             Speech Processing                %
+%                                              %
+%               Laboratório - 2                %
+%                                              %
+%                  Grupo 8                     %
+%                                              %
+%      Student - José  Diogo    - Nº 75255     %
+%      Student - Rúben Tadeia   - Nº 75268     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Part 2 - autocorrelation method
 clear, close, clc
 disp('Function to compute the coefficients and the residual of linear prediction')
 disp('Choose the parameters: ')

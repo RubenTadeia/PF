@@ -1,14 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%          Instituto Superior Tï¿½cnico          %
+%          Instituto Superior Técnico          %
 %                                              %
 %             Speech Processing                %
 %                                              %
-%               Laboratï¿½rio - 2                %
+%               Laboratório - 2                %
 %                                              %
 %                  Grupo 8                     %
 %                                              %
-%      Student - Josï¿½  Diogo    - Nï¿½ 75255     %
-%      Student - Rï¿½ben Tadeia   - Nï¿½ 75268     %
+%      Student - José  Diogo    - Nº 75255     %
+%      Student - Rúben Tadeia   - Nº 75268     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Part 1 - Fundamental Frequency Estimation
