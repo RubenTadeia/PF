@@ -1,21 +1,16 @@
 function Mean = myMean(file)
     fin = fopen(file, 'r');
-    size = 0;
-    numberZeros = 0;
+    Size = 0;
     Mean = 0;
     while ~feof(fin)
-        fileLine = fgets(fin);
-        if (fileLine(1)=='0')
-             numberZeros = numberZeros + 1;
-        end
-        if (fileLine(1)~=0)
-            size = size + 1;
-            Mean = Mean + fileLine(1);
+        Line = fgets(fin);
+        Splitted = strsplit(Line,' ');
+        if (str2num(cell2mat(Splitted(1))) ~= 0)
+            Size = Size + 1;
+            Mean = Mean + str2num(cell2mat(Splitted(1)));
         end
     end
-    numberZeros
-    size = size - numberZeros;
-    Mean = Mean/size;
+    Mean = Mean/Size
     fclose(fin);
 end
 
