@@ -1,0 +1,2 @@
+Na manipulação da gravação neutra para simular frustração foram alterados os parâmetros prosódicos pitch e duração.
+Diminuindo a duração ao longo do  
