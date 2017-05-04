@@ -1,0 +1,14 @@
+#!/bin/sh
+# @(#) MakeHMMdef <fonemes> <proto> 1.0 21/11/97 (Frederico Rodrigues)
+# Gera o ficheiro MMF hmmdefs onde sao colocadas copias do ficheiro
+# proto para cada um dos fonemas existentes.
+
+
+  for fone in `cat $1`
+  do
+    cat $2 |  sed 's/proto_hmm_step2/'$fone'/g' >> tmp
+  done
+
+  cat tmp | grep -v "~o" | grep -v STREAMINFO | grep -v VECSIZE > $3/hmmdefs
+
+  rm tmp

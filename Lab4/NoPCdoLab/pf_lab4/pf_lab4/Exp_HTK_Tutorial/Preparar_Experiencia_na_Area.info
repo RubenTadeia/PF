@@ -1,0 +1,7 @@
+rm -fR protos
+rm -fR resources
+rm -fR rec
+rm -fR results
+rm -fR hmms
+rm data/*/cod/*
+rm data/*/transcricoes*.mlf

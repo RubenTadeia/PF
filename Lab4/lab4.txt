@@ -1,0 +1,15 @@
+Desafio quem tem os melhores test sets
+
+Trocar o ficheiro de configuração faz com que mudemos o conjunto de features
+
+UEKA ver os resultados. Podemos ver coisas que já estão feitas. Temos que aprender o máximo e obter os melhores resultados, a maneira como o fazem
+é sobre o nosso livre arbítrio
+
+Alterar este ficheiro de modo a que ./local_config.sh se ajustem os 4 parametros
+
+
+Temos que detectar se uma pessoa está chateada ou normal. 
+
+
+
+Entregar apenas os resultados das predictions e uma pequena explicação do que fizemos.

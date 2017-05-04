@@ -1,0 +1,2 @@
+$palavra = janeiro | fevereiro | marco | abril | maio | junho | julho | agosto | setembro | outubro | novembro | dezembro;
+( sil $palavra sil )
