@@ -14,10 +14,10 @@
 
 function synth = FormantSynthesis(vowel, f0, duration, intensity)
     %Loading file from wavesurfer
-    load formants.mat
+    load a.mat
     Fs = 8000;
     T0 = 1/f0;
-    T0_samples = floor(Fs*T0);
+    T0_samples = floor(Fs*T0); % Round towards minus infinity
     duration_samples = duration*Fs;
     
     pulse_train = zeros(1, duration_samples);
@@ -33,7 +33,3 @@ function synth = FormantSynthesis(vowel, f0, duration, intensity)
         synth = filter(Ak, [1 -Bk -Ck], synth);
     end
 end
-
-
-end
-
