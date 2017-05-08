@@ -12,27 +12,31 @@
 %      Student - Ruben Tadeia   - Nr 75268     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function synth = FormantSynthesis(vowel, f0, duration, intensity)
+function synth = formant_synth_var(vowel, f0_min, f0_max, duration, intensity_min, intensity_max, Fs)
     %Loading file from wavesurfer
-    load -ASCII O8.mat
+    load -ASCII formants.mat
     
-    Fs = 8000;
-    T0 = 1/f0;
-    T0_samples = floor(Fs*T0); % Round towards minus infinity
+    T0_min = 1/f0_max;
+    T0_max = 1/f0_min;
+    T0_min_samples = floor(Fs*T0_min);
+    T0_max_samples = floor(Fs*T0_max);
     duration_samples = duration*Fs;
-    poleMagnitude = 0.95;
+    
+    T0_slope = (T0_max_samples - T0_min_samples)/duration_samples;
+    intensity_slope = (intensity_max - intensity_min)/duration_samples;
     
     pulse_train = zeros(1, duration_samples);
-    for i = 1:T0_samples:duration_samples
-        pulse_train(i) = intensity;
+    i = 1;
+    while i <= duration_samples;
+        pulse_train(i) = intensity_min + round(i*intensity_slope);
+        i = i + T0_min_samples + round(i*T0_slope);
     end
-
+    
     synth = pulse_train;
     for i = 1:4
-        Ck = -poleMagnitude^2;
-        Bk = 2*poleMagnitude*cos(2*pi*O8(vowel, i)/Fs);
+        Ck = -0.95^2;
+        Bk = 2*0.95*cos(2*pi*formants(vowel, i)/Fs);
         Ak = 1 - Bk - Ck;
         synth = filter(Ak, [1 -Bk -Ck], synth);
-        audiowrite('synth.wav',synth,Fs);
     end
 end
