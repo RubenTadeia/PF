@@ -22,7 +22,7 @@
 %   intensity_min
 %   intensity_max
 
-function synth = FormantSynthVariations(vowel, f0_min, f0_max, duration, intensity_min, intensity_max)%, Fs)
+function synth = FormantSynthVariations(vowel, f0_min, f0_max, duration, intensity_min, intensity_max)
 
 
 

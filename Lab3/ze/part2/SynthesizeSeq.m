@@ -12,16 +12,16 @@
 %      Student - Ruben Tadeia   - Nr 75268     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%vowelseq -> used to produce a synthesized vowel
-%   vowelseq(vowel1, vowel2, f0, duration, intensity)
+%SynthesizeSeq-> used to produce a synthesized vowel
+%   SynthesizeSeq(vowel1, vowel2, f0, duration, intensity)
 %
 %   vowel1 is an integer value between 1 and the duration*100
 %   vowel2 is an integer value between 1 and the duration*100
 %   f0
 %   duration
-%   intensity
+%   intensityintensitintensityy
 
-function synth = vowelseq(vowel1, vowel2, f0, duration, intensity) %, Fs)
+function synth = SynthesizeSeq(vowel1, vowel2, f0, duration, intensity) %, Fs)
 
     %Loading file from wavesurfer    
     filename = 'ola';
