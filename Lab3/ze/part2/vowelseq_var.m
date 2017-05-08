@@ -6,9 +6,9 @@
 %               Laboratorio - 3                %
 %   Part 2 - Formant synthesis using Matlab    %
 %                                              %
-%                  Grupo 8                     %
+%                  Group 8                     %
 %                                              %
-%      Student - Jose  Diogo    - Nr 75255     %
+%      Student - Jose  Oliveira - Nr 75255     %
 %      Student - Ruben Tadeia   - Nr 75268     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
