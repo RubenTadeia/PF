@@ -17,33 +17,41 @@
 %
 %   firstVowel is an integer value between 1 and the duration*100
 %   secondVowel is an integer value between 1 and the duration*100
-%   f0
-%   duration
-%   intensityintensitintensityy
+%   f0 is the fundamental frequency
+%   duration of the output file in seconds
+%   intensity is the saturation of the output file
 
 function SynthesizeSeq(firstVowel, secondVowel, f0, duration, intensity)
 
-    %Loading file from wavesurfer    
-    filename = 'ola';
+    %Loading file obtained from wavesurfer    
+%     filename = 'ola';
+    load vowelFormants.mat;
+    
+    %Check arguments
+    if firstVowel<1 || firstVowel>9
+        Exception = MException('SynthesizeSeq:firstVowel', ...
+            'Value %d out of range',firstVowel);
+        throw(Exception)
+    end
     
     %Garantee the mat file is present in same directory
-    try
-        file = strcat(filename, '.mat');
-        vowelFormants = load(file, '-ascii');
-    catch Exception
-        if (strcmp(Exception.identifier,'MATLAB:load:couldNotReadFile'))
-            msg = ['File ', filename, '.mat does not exist'];
-            causeException = MException('MATLAB:vowelFormantsynthesis:load',msg);
-            Exception = addCause(Exception,causeException);
-        end
-            rethrow(Exception)
-    end
+%     try
+%         file = strcat(filename, '.mat');
+%         vowelFormants = load(file, '-ascii');
+%     catch Exception
+%         if (strcmp(Exception.identifier,'MATLAB:load:couldNotReadFile'))
+%             msg = ['File ', filename, '.mat does not exist'];
+%             causeException = MException('MATLAB:vowelFormantsynthesis:load',msg);
+%             Exception = addCause(Exception,causeException);
+%         end
+%             rethrow(Exception)
+%     end
     
     Fs = 8000;
     t0 = 1/f0;
     t0Samples = floor(Fs*t0);
     durationSamples_v1 = duration*Fs/2;
-    durationSamples = duration*Fs;    
+    durationSamples = duration*Fs; 
     
     clock = zeros(1, durationSamples);
     for i = 1:t0Samples:durationSamples
@@ -64,4 +72,5 @@ function SynthesizeSeq(firstVowel, secondVowel, f0, duration, intensity)
         Ak = 1 - Bk - Ck;
         synth(durationSamples_v1:durationSamples) = filter(Ak, [1 -Bk -Ck], synth(durationSamples_v1:durationSamples));
     end
+    sound(synth, Fs);
 end

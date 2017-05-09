@@ -13,16 +13,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %FormantSynthesis -> used to produce a synthesized vowel
-%   Formant0Snthesis(vowel, f0, duration, intensity)
+%   FormantSynthesis(vowel, f0, duration, intensity)
 %
 %   vowel is an integer value between 1 and the duration*100
-%   f0
-%   duration
-%   intensity
+%   f0 is the fundamental frequency
+%   duration of the output file in seconds
+%   intensity is the saturation of the output file
 
 function FormantSynthesis(vowel, f0, duration, intensity)
-
-    %Loading file from wavesurfer    
+    
+    %Loading file obtained from wavesurfer    
     filename = 'O8';
     
     %Garantee the mat file is present in same directory
@@ -38,17 +38,20 @@ function FormantSynthesis(vowel, f0, duration, intensity)
             rethrow(Exception)
     end
     
+    %Declarations and convertions of variables
     Fs = 8000;
     t0 = 1/f0;
-    t0_samples = floor(Fs*t0); % Round towards minus infinity
+    t0Samples = floor(t0*Fs); % Round towards minus infinity
     durationSamples = duration*Fs;
-    poleMagnitude = 0.95;
-    
+    poleMagnitude = 0.95;  
     clock = zeros(1, durationSamples);
-    for i = 1:t0_samples:durationSamples
+    
+    %Initialize the clock with given intensity
+    for i = 1:t0Samples:durationSamples
         clock(i) = intensity;
     end
 
+    %Applying transfer function of a ressonator
     synth = clock;
     for i = 1:4
         Ck = -poleMagnitude^2;
@@ -56,7 +59,27 @@ function FormantSynthesis(vowel, f0, duration, intensity)
         Ak = 1-Bk-Ck;
         synth = filter(Ak, [1 -Bk -Ck], synth);
     end
-    audiowrite('formant_synthesis_FIXED.wav', synth, Fs);
+    
+    %Loop to convert positive values to 1 and negative to -1
+    %Fix audiowrite warnings
+    for index=1:length(synth)
+        if synth(1, index)<0
+            synth(1, index)=-1;
+        elseif synth(1, index)>0
+            synth(1, index)=1;
+        end
+    end
+    
+    %Saves the synthesized audio file
+    audiowrite('formant_synthesis_fixed.wav', synth, Fs);
+
+    %Play the output synthesized audio file
+    disp('Put your headphones!');
+    disp('Sound starting in:');
+    for s=3:-1:1
+        disp(s);
+        pause(1);
+    end
     sound(synth, Fs);
-    clear synth Fs;
+    
 end

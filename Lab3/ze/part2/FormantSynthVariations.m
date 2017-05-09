@@ -12,21 +12,19 @@
 %      Student - Ruben Tadeia   - Nr 75268     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%vowelFormantsynthVariations -> used to produce a synthesized vowel
-%   vowelFormantsynthVariations(vowel, f0Min, f0Max, duration, intensityMin, intensityMax)
+%FormantSynthVariations -> used to produce a synthesized vowel
+%   FormantSynthVariations(vowel, f0Min, f0Max, duration, intensityMin, intensityMax)
 %
 %   vowel is an integer value between 1 and the duration*100
-%   f0Min
-%   f0Max
-%   duration
-%   intensityMin
-%   intensityMax
+%   f0Min and f0Max are the variation of fundamental frequencies for the output file
+%   duration of the output file in seconds
+%   intensityMin and intensityMax are the variations of saturation of the output file
 
-function vowelFormantsynthVariations(vowel, f0Min, f0Max, duration, intensityMin, intensityMax)
+function FormantSynthVariations(vowel, f0Min, f0Max, duration, intensityMin, intensityMax)
 
 
 
-    %Loading file from wavesurfer   
+    %Loading file obtained from wavesurfer   
     filename = 'O8';
     
     %Garantee the mat file is present in same directory
