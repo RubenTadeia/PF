@@ -12,17 +12,21 @@
 %      Student - Ruben Tadeia   - Nr 75268     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%FormantSynthesis -> used to produce a synthesized vowel
-%   Formant0Snthesis(vowel, f0, duration, intensity)
+%vowelFormantsynthVariations -> used to produce a synthesized vowel
+%   vowelFormantsynthVariations(vowel, f0Min, f0Max, duration, intensityMin, intensityMax)
 %
 %   vowel is an integer value between 1 and the duration*100
-%   f0
+%   f0Min
+%   f0Max
 %   duration
-%   intensity
+%   intensityMin
+%   intensityMax
 
-function FormantSynthesis(vowel, f0, duration, intensity)
+function vowelFormantsynthVariations(vowel, f0Min, f0Max, duration, intensityMin, intensityMax)
 
-    %Loading file from wavesurfer    
+
+
+    %Loading file from wavesurfer   
     filename = 'O8';
     
     %Garantee the mat file is present in same directory
@@ -39,24 +43,31 @@ function FormantSynthesis(vowel, f0, duration, intensity)
     end
     
     Fs = 8000;
-    t0 = 1/f0;
-    t0_samples = floor(Fs*t0); % Round towards minus infinity
+    t0Min = 1/f0Max;
+    t0Max = 1/f0Min;
+    t0MinSamples = floor(Fs*t0Min);
+    t0MaxSamples = floor(Fs*t0Max);
     durationSamples = duration*Fs;
     poleMagnitude = 0.95;
     
+    t0Slope = (t0MaxSamples - t0MinSamples)/durationSamples;
+    intensity_slope = (intensityMax - intensityMin)/durationSamples;
+    
     clock = zeros(1, durationSamples);
-    for i = 1:t0_samples:durationSamples
-        clock(i) = intensity;
+    i = 1;
+    while i <= durationSamples
+        clock(i) = intensityMin + round(i*intensity_slope);
+        i = i + t0MinSamples + round(i*t0Slope);
     end
-
+    
     synth = clock;
     for i = 1:4
         Ck = -poleMagnitude^2;
         Bk = 2*poleMagnitude*cos(2*pi*vowelFormants(vowel, i)/Fs);
-        Ak = 1-Bk-Ck;
+        Ak = 1 - Bk - Ck;
         synth = filter(Ak, [1 -Bk -Ck], synth);
     end
-    audiowrite('formant_synthesis_FIXED.wav', synth, Fs);
+    audiowrite('formant_synthesis_var.wav',synth,Fs);
     sound(synth, Fs);
     clear synth Fs;
 end

@@ -12,18 +12,19 @@
 %      Student - Ruben Tadeia   - Nr 75268     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%FormantSynthesis -> used to produce a synthesized vowel
-%   Formant0Snthesis(vowel, f0, duration, intensity)
+%SynthesizeSeq-> used to produce a synthesized vowel
+%   SynthesizeSeq(firstVowel, secondVowel, f0, duration, intensity)
 %
-%   vowel is an integer value between 1 and the duration*100
+%   firstVowel is an integer value between 1 and the duration*100
+%   secondVowel is an integer value between 1 and the duration*100
 %   f0
 %   duration
-%   intensity
+%   intensityintensitintensityy
 
-function FormantSynthesis(vowel, f0, duration, intensity)
+function SynthesizeSeq(firstVowel, secondVowel, f0, duration, intensity)
 
     %Loading file from wavesurfer    
-    filename = 'O8';
+    filename = 'ola';
     
     %Garantee the mat file is present in same directory
     try
@@ -40,23 +41,27 @@ function FormantSynthesis(vowel, f0, duration, intensity)
     
     Fs = 8000;
     t0 = 1/f0;
-    t0_samples = floor(Fs*t0); % Round towards minus infinity
-    durationSamples = duration*Fs;
-    poleMagnitude = 0.95;
+    t0Samples = floor(Fs*t0);
+    durationSamples_v1 = duration*Fs/2;
+    durationSamples = duration*Fs;    
     
     clock = zeros(1, durationSamples);
-    for i = 1:t0_samples:durationSamples
+    for i = 1:t0Samples:durationSamples
         clock(i) = intensity;
     end
-
+    
     synth = clock;
-    for i = 1:4
-        Ck = -poleMagnitude^2;
-        Bk = 2*poleMagnitude*cos(2*pi*vowelFormants(vowel, i)/Fs);
-        Ak = 1-Bk-Ck;
-        synth = filter(Ak, [1 -Bk -Ck], synth);
+    for j = 1:4
+        Ck = -0.95^2;
+        Bk = 2*0.95*cos(2*pi*vowelFormants(firstVowel, j)/Fs);
+        Ak = 1 - Bk - Ck;
+        synth(1:durationSamples_v1) = filter(Ak, [1 -Bk -Ck], synth(1:durationSamples_v1));
     end
-    audiowrite('formant_synthesis_FIXED.wav', synth, Fs);
-    sound(synth, Fs);
-    clear synth Fs;
+    
+    for j = 1:4
+        Ck = -0.95^2;
+        Bk = 2*0.95*cos(2*pi*vowelFormants(secondVowel, j)/Fs);
+        Ak = 1 - Bk - Ck;
+        synth(durationSamples_v1:durationSamples) = filter(Ak, [1 -Bk -Ck], synth(durationSamples_v1:durationSamples));
+    end
 end
