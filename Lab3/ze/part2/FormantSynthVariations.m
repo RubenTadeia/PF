@@ -32,23 +32,19 @@
 
 function FormantSynthVariations(vowel, f0Min, f0Max, duration, intensityMin, intensityMax)
 
-
-
-    %Loading file obtained from wavesurfer   
-    filename = 'O8';
+    %Loading formants file obtained from wavesurfer   
+    filename = 'vowelFormants';
+    
+    %If value of vowel is a char, map to index file values
+    vowel = convertChar(vowel);
+    
+    %Check arguments range
+    checkInputVowel(vowel);
+    checkInput(f0Min, duration);
+    checkInput(f0Max, duration);
     
     %Garantee the mat file is present in same directory
-    try
-        file = strcat(filename, '.mat');
-        vowelFormants = load(file, '-ascii');
-    catch Exception
-        if (strcmp(Exception.identifier,'MATLAB:load:couldNotReadFile'))
-            msg = ['File ', filename, '.mat does not exist'];
-            causeException = MException('MATLAB:FormantSynthVariations:load',msg);
-            Exception = addCause(Exception,causeException);
-        end
-            rethrow(Exception)
-    end
+    vowelFormants = getFormants(filename);
     
     %Declarations and convertions of variables
     Fs = 8000;
@@ -60,17 +56,17 @@ function FormantSynthVariations(vowel, f0Min, f0Max, duration, intensityMin, int
     poleMagnitude = 0.95;
     
     t0Slope = (t0MaxSamples - t0MinSamples)/durationSamples;
-    intensitySlope = (intensityMax - intensityMin)/durationSamples;    
+    intensitySlope = (intensityMax - intensityMin)/durationSamples; 
     clock = zeros(1, durationSamples);
     
-    %
+    %Initialize the pulse train
     i = 1;
     while i <= durationSamples
         clock(i) = intensityMin + round(i*intensitySlope);
         i = i + t0MinSamples + round(i*t0Slope);
     end
     
-    %
+    %Applying transfer function of a ressonator
     synth = clock;
     for i = 1:4
         Ck = -poleMagnitude^2;
@@ -93,11 +89,6 @@ function FormantSynthVariations(vowel, f0Min, f0Max, duration, intensityMin, int
     audiowrite('formant_synthesis_var.wav',synth,Fs);
     
     %Play the output synthesized audio file
-%     disp('Put your headphones!');
-%     disp('Sound starting in:');
-%     for s=3:-1:1
-%         disp(s);
-%         pause(1);
-%     end
+    headPhonesPrint();
     sound(synth, Fs);
 end

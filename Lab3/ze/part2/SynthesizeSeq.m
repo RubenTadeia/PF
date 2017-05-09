@@ -33,32 +33,20 @@
 
 function SynthesizeSeq(firstVowel, secondVowel, f0, duration, intensity)
 
-    %Loading file obtained from wavesurfer    
+    %Loading formants file obtained from wavesurfer    
     filename = 'vowelFormants';
     
-    %Check arguments
-    if firstVowel<1 || firstVowel>9
-        Exception = MException('SynthesizeSeq:firstVowel', ...
-            'Value %d out of range',firstVowel);
-        throw(Exception)
-    elseif secondVowel<1 || secondVowel>9
-        Exception = MException('SynthesizeSeq:secondVowel', ...
-            'Value %d out of range', secondVowel);
-        throw(Exception)
-    end
+    %If value of vowel is a char, map to index file values
+    firstVowel = convertChar(firstVowel);
+    secondVowel = convertChar(secondVowel);
+    
+    %Check arguments range
+    checkInputVowel(firstVowel);
+    checkInputVowel(secondVowel);
+    checkInput(f0, duration);
     
     %Garantee the mat file is present in same directory
-    try
-        file = strcat(filename, '.mat');
-        vowelFormants = load(file, '-ascii');
-    catch Exception
-        if (strcmp(Exception.identifier,'MATLAB:load:couldNotReadFile'))
-            msg = ['File ', filename, '.mat does not exist'];
-            causeException = MException('MATLAB:SynthesizeSeq:load',msg);
-            Exception = addCause(Exception,causeException);
-        end
-            rethrow(Exception)
-    end
+    vowelFormants = getFormants(filename);
     
     %Declarations and convertions of variables
     Fs = 8000;
@@ -67,16 +55,16 @@ function SynthesizeSeq(firstVowel, secondVowel, f0, duration, intensity)
     %duration for single vowel
     durationSamplesSingle = duration*Fs/2;
     %duration of full audio file
-    durationSamples = duration*Fs; 
+    durationSamples = duration*Fs;
     clock = zeros(1, durationSamples);
     poleMagnitude = 0.95;
     
-    %
+    %Initialize the pulse train
     for i = 1:t0Samples:durationSamples
         clock(i) = intensity;
     end
     
-    %
+    %Applying transfer function of a ressonator for first vowel
     synth = clock;
     for j = 1:4
         Ck = -poleMagnitude^2;
@@ -85,7 +73,7 @@ function SynthesizeSeq(firstVowel, secondVowel, f0, duration, intensity)
         synth(1:durationSamplesSingle) = filter(Ak, [1 -Bk -Ck], synth(1:durationSamplesSingle));
     end
     
-    %
+    %Applying transfer function of a ressonator for second vowel
     for j = 1:4
         Ck = -poleMagnitude^2;
         Bk = 2*poleMagnitude*cos(2*pi*vowelFormants(secondVowel, j)/Fs);
@@ -107,11 +95,6 @@ function SynthesizeSeq(firstVowel, secondVowel, f0, duration, intensity)
     audiowrite('formant_synthesis_seq.wav', synth, Fs);
     
     %Play the output synthesized audio file
-%     disp('Put your headphones!');
-%     disp('Sound starting in:');
-%     for s=3:-1:1
-%         disp(s);
-%         pause(1);
-%     end
+    headPhonesPrint();
     sound(synth, Fs);
 end

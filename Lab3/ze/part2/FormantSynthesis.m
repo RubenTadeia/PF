@@ -32,21 +32,18 @@
 
 function FormantSynthesis(vowel, f0, duration, intensity)
     
-    %Loading file obtained from wavesurfer    
-    filename = 'O8';
+    %Loading formants file obtained from wavesurfer    
+    filename = 'vowelFormants';
     
+    %If value of vowel is a char, map to index file values
+    vowel = convertChar(vowel);
+    
+    %Check arguments range
+    checkInputVowel(vowel);
+    checkInput(f0, duration);
+        
     %Garantee the mat file is present in same directory
-    try
-        file = strcat(filename, '.mat');
-        vowelFormants = load(file, '-ascii');
-    catch Exception
-        if (strcmp(Exception.identifier,'MATLAB:load:couldNotReadFile'))
-            msg = ['File ', filename, '.mat does not exist'];
-            causeException = MException('MATLAB:vowelFormantsynthesis:load',msg);
-            Exception = addCause(Exception,causeException);
-        end
-            rethrow(Exception)
-    end
+    vowelFormants = getFormants(filename);
     
     %Declarations and convertions of variables
     Fs = 8000;
@@ -56,7 +53,7 @@ function FormantSynthesis(vowel, f0, duration, intensity)
     poleMagnitude = 0.95;  
     clock = zeros(1, durationSamples);
     
-    %Initialize the clock with given intensity
+    %Initialize the pulse train with given intensity
     for i = 1:t0Samples:durationSamples
         clock(i) = intensity;
     end
@@ -84,11 +81,6 @@ function FormantSynthesis(vowel, f0, duration, intensity)
     audiowrite('formant_synthesis_fixed.wav', synth, Fs);
 
     %Play the output synthesized audio file
-%     disp('Put your headphones!');
-%     disp('Sound starting in:');
-%     for s=3:-1:1
-%         disp(s);
-%         pause(1);
-%     end
+    headPhonesPrint();
     sound(synth, Fs);
 end
