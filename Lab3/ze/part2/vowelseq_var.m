@@ -12,7 +12,7 @@
 %      Student - Ruben Tadeia   - Nr 75268     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function synth = vowelseq_var(vowel1, vowel2, f0_min, f0_max, duration, intensity_min, intensity_max, Fs)
+function vowelseq_var(vowel1, vowel2, f0_min, f0_max, duration, intensity_min, intensity_max, Fs)
     %Loading file from wavesurfer
     load -ASCII formants.mat
     

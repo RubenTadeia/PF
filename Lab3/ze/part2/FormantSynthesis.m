@@ -13,48 +13,50 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %FormantSynthesis -> used to produce a synthesized vowel
-%   FormantSynthesis(vowel, f0, duration, intensity)
+%   Formant0Snthesis(vowel, f0, duration, intensity)
 %
 %   vowel is an integer value between 1 and the duration*100
 %   f0
 %   duration
 %   intensity
 
-function synth = FormantSynthesis(vowel, f0, duration, intensity)
+function FormantSynthesis(vowel, f0, duration, intensity)
 
     %Loading file from wavesurfer    
-    filename = 'ola';
+    filename = 'O8';
     
     %Garantee the mat file is present in same directory
     try
         file = strcat(filename, '.mat');
-        formants = load(file, '-ascii');
+        vowelFormants = load(file, '-ascii');
     catch Exception
         if (strcmp(Exception.identifier,'MATLAB:load:couldNotReadFile'))
             msg = ['File ', filename, '.mat does not exist'];
-            causeException = MException('MATLAB:FormantSynthesis:load',msg);
+            causeException = MException('MATLAB:vowelFormantsynthesis:load',msg);
             Exception = addCause(Exception,causeException);
         end
             rethrow(Exception)
     end
     
     Fs = 8000;
-    T0 = 1/f0;
-    T0_samples = floor(Fs*T0); % Round towards minus infinity
-    duration_samples = duration*Fs;
+    t0 = 1/f0;
+    t0_samples = floor(Fs*t0); % Round towards minus infinity
+    durationSamples = duration*Fs;
     poleMagnitude = 0.95;
     
-    pulse_train = zeros(1, duration_samples);
-    for i = 1:T0_samples:duration_samples
-        pulse_train(i) = intensity;
+    clock = zeros(1, durationSamples);
+    for i = 1:t0_samples:durationSamples
+        clock(i) = intensity;
     end
 
-    synth = pulse_train;
+    synth = clock;
     for i = 1:4
         Ck = -poleMagnitude^2;
-        Bk = 2*poleMagnitude*cos(2*pi*formants(vowel, i)/Fs);
-        Ak = 1 - Bk - Ck;
+        Bk = 2*poleMagnitude*cos(2*pi*vowelFormants(vowel, i)/Fs);
+        Ak = 1-Bk-Ck;
         synth = filter(Ak, [1 -Bk -Ck], synth);
-        audiowrite('formant_synthesis_fixed.wav',synth,Fs);
     end
+    audiowrite('formant_synthesis_FIXED.wav', synth, Fs);
+    sound(synth, Fs);
+    clear synth Fs;
 end
