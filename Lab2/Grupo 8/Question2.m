@@ -19,7 +19,7 @@ inputLength = input('Window length(ms): ');
 inputInterval = input('Window interval(ms): ');
 inputPredictionOrder = input('Prediction order: ');
 
-inputFile = 'birthdate_75255_voiced.wav';
+inputFile = 'birthdate_75255.wav';
 resOutputFile = 'birthdate_75255_res.wav';
 synOutputFile = 'birthdate_75255_syn.wav';
 
