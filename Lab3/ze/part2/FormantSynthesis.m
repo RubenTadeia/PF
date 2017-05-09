@@ -15,10 +15,20 @@
 %FormantSynthesis -> used to produce a synthesized vowel
 %   FormantSynthesis(vowel, f0, duration, intensity)
 %
-%   vowel is an integer value between 1 and the duration*100
+%   vowel is an integer value between 1 and 9 (see values below)
 %   f0 is the fundamental frequency
 %   duration of the output file in seconds
 %   intensity is the saturation of the output file
+%
+%   a - 1
+%   E - 2
+%   i - 3
+%   O - 4
+%   u - 5
+%   6 - 6
+%   e - 7
+%   o - 8
+%   @ - 9
 
 function FormantSynthesis(vowel, f0, duration, intensity)
     
@@ -74,12 +84,11 @@ function FormantSynthesis(vowel, f0, duration, intensity)
     audiowrite('formant_synthesis_fixed.wav', synth, Fs);
 
     %Play the output synthesized audio file
-    disp('Put your headphones!');
-    disp('Sound starting in:');
-    for s=3:-1:1
-        disp(s);
-        pause(1);
-    end
+%     disp('Put your headphones!');
+%     disp('Sound starting in:');
+%     for s=3:-1:1
+%         disp(s);
+%         pause(1);
+%     end
     sound(synth, Fs);
-    
 end

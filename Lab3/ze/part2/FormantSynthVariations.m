@@ -15,10 +15,20 @@
 %FormantSynthVariations -> used to produce a synthesized vowel
 %   FormantSynthVariations(vowel, f0Min, f0Max, duration, intensityMin, intensityMax)
 %
-%   vowel is an integer value between 1 and the duration*100
+%   vowel is an integer value between 1 and 9 (see values below)
 %   f0Min and f0Max are the variation of fundamental frequencies for the output file
 %   duration of the output file in seconds
 %   intensityMin and intensityMax are the variations of saturation of the output file
+%
+%   a - 1
+%   E - 2
+%   i - 3
+%   O - 4
+%   u - 5
+%   6 - 6
+%   e - 7
+%   o - 8
+%   @ - 9
 
 function FormantSynthVariations(vowel, f0Min, f0Max, duration, intensityMin, intensityMax)
 
@@ -34,12 +44,13 @@ function FormantSynthVariations(vowel, f0Min, f0Max, duration, intensityMin, int
     catch Exception
         if (strcmp(Exception.identifier,'MATLAB:load:couldNotReadFile'))
             msg = ['File ', filename, '.mat does not exist'];
-            causeException = MException('MATLAB:vowelFormantsynthesis:load',msg);
+            causeException = MException('MATLAB:FormantSynthVariations:load',msg);
             Exception = addCause(Exception,causeException);
         end
             rethrow(Exception)
     end
     
+    %Declarations and convertions of variables
     Fs = 8000;
     t0Min = 1/f0Max;
     t0Max = 1/f0Min;
@@ -49,15 +60,17 @@ function FormantSynthVariations(vowel, f0Min, f0Max, duration, intensityMin, int
     poleMagnitude = 0.95;
     
     t0Slope = (t0MaxSamples - t0MinSamples)/durationSamples;
-    intensity_slope = (intensityMax - intensityMin)/durationSamples;
-    
+    intensitySlope = (intensityMax - intensityMin)/durationSamples;    
     clock = zeros(1, durationSamples);
+    
+    %
     i = 1;
     while i <= durationSamples
-        clock(i) = intensityMin + round(i*intensity_slope);
+        clock(i) = intensityMin + round(i*intensitySlope);
         i = i + t0MinSamples + round(i*t0Slope);
     end
     
+    %
     synth = clock;
     for i = 1:4
         Ck = -poleMagnitude^2;
@@ -65,7 +78,26 @@ function FormantSynthVariations(vowel, f0Min, f0Max, duration, intensityMin, int
         Ak = 1 - Bk - Ck;
         synth = filter(Ak, [1 -Bk -Ck], synth);
     end
+    
+    %Loop to convert positive values to 1 and negative to -1
+    %Fix audiowrite warnings
+    for index=1:length(synth)
+        if synth(1, index)<0
+            synth(1, index)=-1;
+        elseif synth(1, index)>0
+            synth(1, index)=1;
+        end
+    end
+    
+    %Saves the synthesized audio file
     audiowrite('formant_synthesis_var.wav',synth,Fs);
+    
+    %Play the output synthesized audio file
+%     disp('Put your headphones!');
+%     disp('Sound starting in:');
+%     for s=3:-1:1
+%         disp(s);
+%         pause(1);
+%     end
     sound(synth, Fs);
-    clear synth Fs;
 end
