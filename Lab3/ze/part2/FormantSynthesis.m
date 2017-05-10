@@ -33,7 +33,7 @@
 function FormantSynthesis(vowel, f0, duration, intensity)
     
     %Loading formants file obtained from wavesurfer    
-    filename = 'vowelFormants';
+    filename = 'u';
     
     %If value of vowel is a char, map to index file values
     vowel = convertChar(vowel);
@@ -78,7 +78,7 @@ function FormantSynthesis(vowel, f0, duration, intensity)
     end
     
     %Saves the synthesized audio file
-    audiowrite('formant_synthesis_fixed.wav', synth, Fs);
+    audiowrite('parte2_4.wav', synth, Fs);
 
     %Play the output synthesized audio file
     headPhonesPrint();

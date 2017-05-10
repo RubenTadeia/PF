@@ -1,5 +1,0 @@
-Não usar 16kHz nas formantes
-
-Usar 8.
-
-No formant plot
