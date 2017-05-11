@@ -78,6 +78,9 @@ if [ $STEP2 -eq "1" ]; then
   
   for dataset in ${DATASETS[*]}; do
 
+    ##hack to change the header to be compatible with WEKA
+    sed -i -e "s/@attribute class numeric/@attribute Emotion {neutral,angry}/g" $arffDir/$dataset.arff
+      
     touch $svmdataDir/$dataset.datasvm
     rm $svmdataDir/$dataset.datasvm
 
