@@ -25,7 +25,7 @@ mainDir=`pwd`
 toolsDir=$mainDir/tools/
 wavDir=$mainDir/data/
 labelsDir=$mainDir/labels/
-binDir=$mainDir/bin/
+binDir=$mainDir/bin
 
 ## Binaries configuration
 SMILEbin=$binDir/opensmile-2.3.0/bin/linux_x64_standalone_libstdc6/SMILExtract
