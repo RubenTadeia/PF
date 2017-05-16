@@ -3,9 +3,12 @@
     O professor vai fornecer as labels para os testes ou vamo
     ter que os identificar 1 a 1? (Impraticável)
 
-Resposta: Perguntei ao João Domingos como é que ele fez,
-		  agora é aguardar... Ou então quinta feira, falamos
-		  com o Professor. Não esquecer.
+Resposta: Não vamos ter resposta... É assim que vamos ser
+		  avaliados. Vão testar o nosso classificador com os
+		  testes. É mesmo esse o objectivo de machine Learning.
 
 
-2 → 
+2 → Como implementar ? 
+    http://www.l2f.inesc-id.pt/~imt/priv/pf/en_pf/gemaps_usage.html
+
+Resposta:
