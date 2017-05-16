@@ -1,0 +1,3 @@
+WARNING: original #nonzeros 1027799
+       > new      #nonzeros 1039365
+If feature values are non-negative and sparse, use -l 0 rather than the default -l -1

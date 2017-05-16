@@ -122,7 +122,7 @@ if [ $STEP3 -eq "1" ]; then
   echo "STEP 3 - Train LIBSVM model "
   mkdir -p  $modelDir
   
-  $SVMTRAINbin -s 4 $svmdataDir/$TRAINSET.$data $modelDir/emotion_model.svm
+  $SVMTRAINbin -t 1 $svmdataDir/$TRAINSET.$data $modelDir/emotion_model.svm
 else
   echo "SKIP STEP 3!!!"
 fi

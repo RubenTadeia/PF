@@ -1,0 +1,15 @@
+./LAB4_BASELINE.sh 
+STEP 0 - CLEAN UP directory of previous results
+STEP 1 - Extract arff data files for TRAIN, DEV and TEST sets
+STEP 2 - Convert arff format files for libsvm format
+STEP 3 - Train LIBSVM model 
+...................................*..................*
+optimization finished, #iter = 53343
+nu = 0.149822
+obj = -126.410093, rho = -9.133851
+nSV = 613, nBSV = 29
+Total nSV = 613
+STEP 4 - Generate predictions 
+Accuracy on the dev set 80.3653% (528/657)
+Accuracy on the test1 set 0% (0/581)
+Accuracy on the test2 set 0% (0/167)

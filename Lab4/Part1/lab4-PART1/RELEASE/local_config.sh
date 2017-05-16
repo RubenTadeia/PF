@@ -65,7 +65,7 @@ DATASETS=($TRAINSET $DEVSET ${TESTSET[*]})
 # STEP4=0    #  STEP 4 - Generate PREDICTION using dev and test data      
 
 #E corres este depois
-STEP0=0    #  STEP 0 - CLEAN UP directory of previous results 
+STEP0=1    #  STEP 0 - CLEAN UP directory of previous results 
 STEP1=1    #  STEP 1 - Extract arff data files for TRAIN, DEV and TEST sets 
 STEP2=1    #  STEP 2 - Convert arff format files for libsvm format
 STEP3=1    #  STEP 3 - Train LIBSVM model               
