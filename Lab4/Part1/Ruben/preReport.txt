@@ -1,0 +1,79 @@
+---------------------------------------------------------
+---------------------------------------------------------
+						Lab 4
+
+			Part 1 - Speech Pattern Classification 
+---------------------------------------------------------
+---------------------------------------------------------
+
+1 → Run the baseline
+
+	De modo a ter o nosso classificador de emoções a funcionar começamos por correr
+	o Baseline que o professor tinha sugerido: (-t 0) → Linear Kernel
+	Nota: Definimos STEP0 = 0 para que não fossem apagados os seguintes ficheiros:
+		→ dev.svmprediction
+		→ test1.svmprediction
+		→ test2.svmprediction
+
+	STEP0=0    #  STEP 0 - CLEAN UP directory of previous results 
+	STEP1=1    #  STEP 1 - Extract arff data files for TRAIN, DEV and TEST sets 
+	STEP2=1    #  STEP 2 - Convert arff format files for libsvm format
+	STEP3=1    #  STEP 3 - Train LIBSVM model               
+	STEP4=1    #  STEP 4 - Generate PREDICTION using dev and test data      
+	
+
+	E obtivemos os seguintes resultados:
+	
+	./LAB4_BASELINE.sh 
+			STEP 1 - Extract arff data files for TRAIN, DEV and TEST sets
+			STEP 2 - Convert arff format files for libsvm format
+			STEP 3 - Train LIBSVM model 
+			Total nSV = 0
+			STEP 4 - Generate predictions 
+			Accuracy on the dev set 76.1035% (500/657)
+			Accuracy on the test1 set 0% (0/581)
+			Accuracy on the test2 set 0% (0/167)
+	
+		Isto significa que o classificador para o set de desenvolvimento
+	teve 76,1035% (500/657) elementos correctamente classificados.
+		O test1 e test2 aparecem com 0% pois as labels não estavam no folder,
+	no entanto foram identificados pelo nosso classificador, não tendo sido possível
+	saber se a classificação tinha sido correctamente efectuada.
+
+---------------------------------------------------------
+---------------------------------------------------------
+
+2 → Improve the baseline (free)
+
+	Foram realizadas alterações no ficheiro LAB4_BASELINE.sh
+
+	No Step 3 alteraram-se os parâmetros para os que se seguem:
+		→ -t 1 (Polynomial Degree = 2)
+		→ -t 2 (Radial Kernel)
+		→ -t 3 (Sigmoid Kernel)
+		→ -s 0 c  -SVC
+		→ -s 1 nu -SVC
+		→ -s 2 one class SVM
+		→ -s 3 epsilon -SVR
+		→ -s 4 nu -SVR
+
+	Em todos estes exemplos anteriores se obteve uma percentagem de
+	acuracy no ambiente de desenvolvimento de 76,1035%
+
+
+	O grupo decidiu então mudar de abordagem e não utilizar a Baseline
+	inicialmente dada. Para isso vamos tentar explicar a linha de raciocínio
+
+
+	Audio (.wav) → Feature Extraction (using MFCC) → Features →
+
+	→ Train a model (using LibSVM model) → We get the classes →
+
+	→ We use principal component analysis → Classification Decison
+
+---------------------------------------------------------
+---------------------------------------------------------
+
+3 → Submit your decisions and your system/experiments description 
+    (information about the submission process will be announced) 
+
