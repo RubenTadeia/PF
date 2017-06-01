@@ -1,0 +1,25 @@
+Aumentar o número de gaussianas...
+
+
+Acuracy para o independent corrent o viterby;
+
+
+
+Part2 o que fazer:
+
+- Extrair os mfcc's do treino e já agora do teste;
+
+- Do train... Como fazer o treino? Colocar os ficheiros todos juntos e construimos um modelo (speaker independent)
+
+- A linha de misturas muda-se em 2 sitios, no FOR e noutra linha mudar (mudar até 7)
+
+- For de 1 a 34 (1 por speaker);
+
+- Do recognition. Só dá resultados para letras e digitos, ignorando se existem erros nas portadoras. Só faz o cálculo para letras e digitos
+	( Faz isto para o speaker dependent, se quisermos com speaker independent temos que mudar )
+
+ - Linha 4 - Nova aplicação? Ler matriculas, passwords? (ETC - Word List), temos que mudar o lexic pronunciation? It is a bypass. Dictionary needs to
+ be edited. And we need to change the grammar. Create new grammar with new name. Gramatica tem que estar no formato letice e fazer "hpass word 2 wordnet2"
+ 		(Parece um grafo)
+
+- Em vez de fazermos 10 gravações de teste façam só para 1. A professora está apra tudo. Nos comandos, a professora vai dar o comando para calcular um mfcc em vez de 10 ( remover -s )
