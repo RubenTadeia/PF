@@ -3,8 +3,6 @@
 
 # Processamento da Fala 2016/2017
 # Grupo 8
-#
-# import shlex
 
 #Import for sorting
 import operator
@@ -82,16 +80,11 @@ def doBigrams(fNameIn, fNameOut):
 	return frequentBigrams
 
 
-def fileLength(fname):
+def doVocabularySize(fname):
 	with open(fname, "rt") as f:
 		for i, l in enumerate(f):
 			pass
 	return i + 1
-
-
-def doVocabularySize():
-
-	print "ola"
 
 
 def doOutputFile(frequentUnigrams, frequentBigrams, numberUnigrams, numberBigrams, vocabSize):
@@ -121,6 +114,7 @@ def doOutputFile(frequentUnigrams, frequentBigrams, numberUnigrams, numberBigram
 		for i in frequentBigrams:
 			fout.write(i+"\n")
 
+
 def numberOfNgrams(fname):
 	with open(fname, "rt") as f:
 		count = 0
@@ -136,7 +130,7 @@ def main():
 
 	numberUnigrams = numberOfNgrams("unigrams_s1.txt")
 	numberBigrams = numberOfNgrams("bigrams_s1.txt")
-	vocabSize = fileLength("unigrams_s1.txt")
+	vocabSize = doVocabularySize("unigrams_s1.txt")
 
 	doOutputFile(frequentUnigrams, frequentBigrams, numberUnigrams, numberBigrams, vocabSize)
 
