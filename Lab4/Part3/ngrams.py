@@ -4,9 +4,11 @@
 # Processamento da Fala 2016/2017
 # Grupo 8
 
-#Import for sorting
-import operator
+import operator # Import for sorting
+import sys
 
+# In this function we open the unigrams file
+# previously created and we create the unigrams file
 def doUnigrams(fNameIn, fNameOut):
 	#Dictionary of unigrams
 	unigrams={}
@@ -32,7 +34,7 @@ def doUnigrams(fNameIn, fNameOut):
 		n=0
 		frequentUnigrams=[]
 		for k in sortedUnigrams:
-			unigram=str(k[0]) + " " + str(k[1])
+			unigram=str(k[0]) + " " + str(k[1]) # Add _ between the 2 words of the bigram
 			if n < numberUnigramsToPrint:
 				print unigram
 				frequentUnigrams.append(unigram)
@@ -42,6 +44,8 @@ def doUnigrams(fNameIn, fNameOut):
 	return frequentUnigrams
 
 
+# In this function we open the bigrams file
+# then we create the bigrams file
 def doBigrams(fNameIn, fNameOut):
 
 	#Dictionary of bigrams
@@ -53,7 +57,7 @@ def doBigrams(fNameIn, fNameOut):
 		for line in fin:
 			words = line.split()
 			for i in range(0, len(words)-1):
-				bigram = words[i] + "_" + words[i+1]
+				bigram = words[i] + "_" + words[i+1] # Add _ between the 2 words of the bigram
 
 				if bigram in bigrams:
 					bigrams[bigram] += 1
@@ -80,6 +84,8 @@ def doBigrams(fNameIn, fNameOut):
 	return frequentBigrams
 
 
+# Function that counts the size of the vocabulary
+# given the initial training file as input
 def doVocabularySize(fname):
 	with open(fname, "rt") as f:
 		for i, l in enumerate(f):
@@ -87,34 +93,47 @@ def doVocabularySize(fname):
 	return i + 1
 
 
-def doOutputFile(frequentUnigrams, frequentBigrams, numberUnigrams, numberBigrams, vocabSize):
+# In this function we create the output file from a template
+# we even fillthe file with all the information that he needs
+def doOutputFile(frequentUnigrams, frequentBigrams, numberUnigrams, numberBigrams, vocabSize, outputFilename):
 
-	with open("ngrams_s1.txt", "wt") as fout:
+	separator = "-" * 45
+	with open(outputFilename, "wt") as fout:
+		fout.write(separator); fout.write("\n"); fout.write("\n")
 		fout.write("Made by Group 8:\n")
 
 		fout.write("\n")
+		fout.write(separator); fout.write("\n"); fout.write("\n")
 		fout.write("Vocabulary size:\n")
 		fout.write(str(vocabSize)+"\n")
 
 		fout.write("\n")
+		fout.write(separator); fout.write("\n"); fout.write("\n")
 		fout.write("Number of unigrams\n")
 		fout.write(str(numberUnigrams)+"\n")
 
 		fout.write("\n")
+		fout.write(separator); fout.write("\n"); fout.write("\n")
 		fout.write("10 most frequent unigrams\n")
 		for i in frequentUnigrams:
 			fout.write(i+"\n")
 
 		fout.write("\n")
+		fout.write(separator); fout.write("\n"); fout.write("\n")
 		fout.write("Number of bigrams\n")
 		fout.write(str(numberBigrams)+"\n")
 
 		fout.write("\n")
+		fout.write(separator); fout.write("\n"); fout.write("\n")
 		fout.write("10 most frequent bigrams\n")
 		for i in frequentBigrams:
 			fout.write(i+"\n")
 
+		fout.write("\n")
+		fout.write(separator); fout.write("\n");
 
+
+# Function that return the number of Ngrams
 def numberOfNgrams(fname):
 	with open(fname, "rt") as f:
 		count = 0
@@ -123,17 +142,25 @@ def numberOfNgrams(fname):
 			count += int(value[1])
 	return count
 
-
+# The main function calls the previously created functions
+# Calculates the probability to be shown in the outputFile
+# creates the outputFile and writes in it
+# If no input file is given upon execution, there will be thrown an error
 def main():
-	frequentUnigrams = doUnigrams("s1.txt", "unigrams_s1.txt")
-	frequentBigrams = doBigrams("s1.txt", "bigrams_s1.txt")
-
-	numberUnigrams = numberOfNgrams("unigrams_s1.txt")
-	numberBigrams = numberOfNgrams("bigrams_s1.txt")
-	vocabSize = doVocabularySize("unigrams_s1.txt")
-
-	doOutputFile(frequentUnigrams, frequentBigrams, numberUnigrams, numberBigrams, vocabSize)
-
+	if len(sys.argv) != 1: # Verification that input training file is provided
+		unigramsFilename = "unigrams_" + sys.argv[1];
+		bigramsFilename = "bigrams_" + sys.argv[1];
+		outputFilename  = "ngrams_" + sys.argv[1];
+		frequentUnigrams = doUnigrams(sys.argv[1], unigramsFilename)
+		frequentBigrams = doBigrams(sys.argv[1], bigramsFilename)
+		numberUnigrams = numberOfNgrams(unigramsFilename)
+		numberBigrams = numberOfNgrams(bigramsFilename)
+		vocabSize = doVocabularySize(unigramsFilename)
+		doOutputFile(frequentUnigrams, frequentBigrams, numberUnigrams, numberBigrams, vocabSize, outputFilename)
+	else:
+		print "";
+		print "[ERROR] How to run it: python ngrams.py <trainingFile.txt>";
+		print "";
 
 if __name__ == "__main__":
 	main()

@@ -1,127 +1,161 @@
---------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------
 
 Made by Group 8:
 
---------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------
 
 Computing the probability of the given test sentence from the file s3.txt
 Without Smoothing with the language model based on the Training
 file s1.txt
 
---------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------
 
 The Probability Without Smoothing Formula was calculated this way:
-Probability(Without Smoothing) = 
 
---------------------------------------------------------------------------------
+Probability(Without Smoothing) = ∑_para_todos_os_bigramas (#ocorrências_do_bigrama) / (#ocorrências_da_primeira_palavra_do_bigrama)
 
-#ocorrêncas[<s>_o] = 3156
-#ocorrêncas[<s>] = 25075
-PP_1 = 3156 / 25075 = 0.125862
+-----------------------------------------------------------------------------------------------------------------------------------
 
-
-#ocorrêncas[o_banco] = 46
-#ocorrêncas[o] = 14005
-PP_2 = 46 / 14005 = 0.003285
+Compute P(<s> o rapaz foi ótimo no estúdio em abril admitiu a necessidade de aprender um monte de novos termos amorosos para experimentar com as jennifers de sampa </s>)
 
 
-#ocorrêncas[banco_em] = 1
-#ocorrêncas[banco] = 167
-PP_3 = 1 / 167 = 0.005988
+C(<s>,o) = 3156
+C(<s>) = 25075
+Parcial Probability_1 (o|<s>) = 3156 / 25075 = 0.125862412762
 
 
-#ocorrêncas[em_si] = 4
-#ocorrêncas[em] = 4370
-PP_4 = 4 / 4370 = 0.000915
+C(o,rapaz) = 6
+C(o) = 14005
+Parcial Probability_2 (rapaz|o) = 6 / 14005 = 0.000428418421992
 
 
-#ocorrêncas[si_não] = 1
-#ocorrêncas[si] = 28
-PP_5 = 1 / 28 = 0.035714
+C(rapaz,foi) = 1
+C(rapaz) = 16
+Parcial Probability_3 (foi|rapaz) = 1 / 16 = 0.0625
 
 
-#ocorrêncas[não_tem] = 128
-#ocorrêncas[não] = 3868
-PP_6 = 128 / 3868 = 0.033092
+C(foi,ótimo) = 2
+C(foi) = 1397
+Parcial Probability_4 (ótimo|foi) = 2 / 1397 = 0.00143163922691
 
 
-#ocorrêncas[tem_qualquer] = 3
-#ocorrêncas[tem] = 807
-PP_7 = 3 / 807 = 0.003717
+C(ótimo,no) = 1
+C(ótimo) = 16
+Parcial Probability_5 (no|ótimo) = 1 / 16 = 0.0625
 
 
-#ocorrêncas[qualquer_atrativo] = 1
-#ocorrêncas[qualquer] = 230
-PP_8 = 1 / 230 = 0.004348
+C(no,estúdio) = 5
+C(no) = 3506
+Parcial Probability_6 (estúdio|no) = 5 / 3506 = 0.00142612664005
 
 
-#ocorrêncas[atrativo_mas] = 1
-#ocorrêncas[atrativo] = 5
-PP_9 = 1 / 5 = 0.200000
+C(estúdio,em) = 1
+C(estúdio) = 15
+Parcial Probability_7 (em|estúdio) = 1 / 15 = 0.0666666666667
 
 
-#ocorrêncas[mas_faz] = 1
-#ocorrêncas[mas] = 1360
-PP_10 = 1 / 1360 = 0.000735
+C(em,abril) = 20
+C(em) = 4370
+Parcial Probability_8 (abril|em) = 20 / 4370 = 0.0045766590389
 
 
-#ocorrêncas[faz_parte] = 29
-#ocorrêncas[faz] = 220
-PP_11 = 29 / 220 = 0.131818
+C(abril,admitiu) = 1
+C(abril) = 33
+Parcial Probability_9 (admitiu|abril) = 1 / 33 = 0.030303030303
 
 
-#ocorrêncas[parte_de] = 38
-#ocorrêncas[parte] = 296
-PP_12 = 38 / 296 = 0.128378
+C(admitiu,a) = 3
+C(admitiu) = 18
+Parcial Probability_10 (a|admitiu) = 3 / 18 = 0.166666666667
 
 
-#ocorrêncas[de_quase] = 5
-#ocorrêncas[de] = 16152
-PP_13 = 5 / 16152 = 0.000310
+C(a,necessidade) = 25
+C(a) = 13691
+Parcial Probability_11 (necessidade|a) = 25 / 13691 = 0.00182601709152
 
 
-#ocorrêncas[quase_todos] = 14
-#ocorrêncas[quase] = 151
-PP_14 = 14 / 151 = 0.092715
+C(necessidade,de) = 34
+C(necessidade) = 58
+Parcial Probability_12 (de|necessidade) = 34 / 58 = 0.586206896552
 
 
-#ocorrêncas[todos_os] = 194
-#ocorrêncas[todos] = 357
-PP_15 = 194 / 357 = 0.543417
+C(de,aprender) = 2
+C(de) = 16152
+Parcial Probability_13 (aprender|de) = 2 / 16152 = 0.000123823675087
 
 
-#ocorrêncas[os_livretos] = 1
-#ocorrêncas[os] = 3857
-PP_16 = 1 / 3857 = 0.000259
+C(aprender,um) = 1
+C(aprender) = 17
+Parcial Probability_14 (um|aprender) = 1 / 17 = 0.0588235294118
 
 
-#ocorrêncas[livretos_e] = 1
-#ocorrêncas[livretos] = 1
-PP_17 = 1 / 1 = 1.000000
+C(um,monte) = 5
+C(um) = 3835
+Parcial Probability_15 (monte|um) = 5 / 3835 = 0.0013037809648
 
 
-#ocorrêncas[e_roteiros] = 2
-#ocorrêncas[e] = 8753
-PP_18 = 2 / 8753 = 0.000228
+C(monte,de) = 5
+C(monte) = 13
+Parcial Probability_16 (de|monte) = 5 / 13 = 0.384615384615
 
 
-#ocorrêncas[roteiros_de] = 2
-#ocorrêncas[roteiros] = 8
-PP_19 = 2 / 8 = 0.250000
+C(de,novos) = 14
+C(de) = 16152
+Parcial Probability_17 (novos|de) = 14 / 16152 = 0.000866765725607
 
 
-#ocorrêncas[de_turismo] = 9
-#ocorrêncas[de] = 16152
-PP_20 = 9 / 16152 = 0.000557
+C(novos,termos) = 1
+C(novos) = 92
+Parcial Probability_18 (termos|novos) = 1 / 92 = 0.0108695652174
 
 
-#ocorrêncas[turismo_</s>] = 5
-#ocorrêncas[turismo] = 26
-PP_21 = 5 / 26 = 0.192308
+C(termos,amorosos) = 1
+C(termos) = 37
+Parcial Probability_19 (amorosos|termos) = 1 / 37 = 0.027027027027
+
+
+C(amorosos,para) = 1
+C(amorosos) = 2
+Parcial Probability_20 (para|amorosos) = 1 / 2 = 0.5
+
+
+C(para,experimentar) = 1
+C(para) = 4601
+Parcial Probability_21 (experimentar|para) = 1 / 4601 = 0.00021734405564
+
+
+C(experimentar,com) = 1
+C(experimentar) = 5
+Parcial Probability_22 (com|experimentar) = 1 / 5 = 0.2
+
+
+C(com,as) = 108
+C(com) = 3598
+Parcial Probability_23 (as|com) = 108 / 3598 = 0.0300166759311
+
+
+C(as,jennifers) = 1
+C(as) = 2352
+Parcial Probability_24 (jennifers|as) = 1 / 2352 = 0.000425170068027
+
+
+C(jennifers,de) = 1
+C(jennifers) = 1
+Parcial Probability_25 (de|jennifers) = 1 / 1 = 1
+
+
+C(de,sampa) = 1
+C(de) = 16152
+Parcial Probability_26 (sampa|de) = 1 / 16152 = 6.19118375433e-05
+
+
+C(sampa,</s>) = 1
+C(sampa) = 3
+Parcial Probability_27 (</s>|sampa) = 1 / 3 = 0.333333333333
 
 
 
-Final Probability is given by  ||  P[<s> o banco em si não tem qualquer atrativo mas faz parte de quase todos os livretos e roteiros de turismo </s>
-] = 0.000000
+Final Probability is given by:
+P[<s> o rapaz foi ótimo no estúdio em abril admitiu a necessidade de aprender um monte de novos termos amorosos para experimentar com as jennifers de sampa </s>] = 3.77648268544e-51
 
---------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------

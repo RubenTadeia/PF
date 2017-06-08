@@ -3,10 +3,12 @@
 
 # Processamento da Fala 2016/2017
 # Grupo 8
-#
 
 import sys
 
+# This function opens the unigram file that has been created
+# previously using the ngrams.py script, after opening the file
+# retrieves the frequency of a given unigram (input)
 def getUnigramFrequency(unigramsFile,unigram):
 	with open(unigramsFile, "rt") as f:
 		frequency = 0;
@@ -16,6 +18,9 @@ def getUnigramFrequency(unigramsFile,unigram):
 				frequency = unigrams[1];
 				return frequency;
 
+# This function opens the bigram file that has been created
+# previously using the ngrams.py script, after opening the file
+# retrieves the frequency of a given bigram (input)
 def getBigramFrequency(bigramsFile,bigram):
 	with open(bigramsFile, "rt") as f:
 		frequency = 0;
@@ -25,6 +30,11 @@ def getBigramFrequency(bigramsFile,bigram):
 				frequency = bigrams[1];
 				return frequency;
 
+# This function calculates the final probability to be
+# shown in the output file. 
+# In the process some auxiliar variables containing the unigrams
+# and the bigrams are used to ensure that the outputFile is written as 
+# it is supposed to be !
 def getBigramProbability(testFile):
 	with open(testFile, "rt") as f:
 		probability = 1;
@@ -71,6 +81,7 @@ def getBigramProbability(testFile):
 
 	return probability;
 
+# This function creates the outputFile 
 def doOutputFile(inputFile):
 	separator = "-" * 131
 	outputFileName = "prob_" + inputFile;
@@ -95,14 +106,20 @@ def doOutputFile(inputFile):
 		fout.write(separator)
 		fout.write("\n");fout.write("\n");
 
+# This function appends one given line (input)
+# to the previously created outputFile
 def insertLineOutputFile(outputFileName,line):
 
 	with open(outputFileName, "a") as fout:
 		fout.write(line)
 		fout.write("\n")
 
+# The main function calls the previously created functions
+# Calculates the probability to be shown in the outputFile
+# creates the outputFile and writes in it
+# If no input file is given upon execution, there will be thrown an error
 def main():
-	if len(sys.argv) != 1:
+	if len(sys.argv) != 1: # Verification that input test file is provided
 		separator = "-" * 131
 		doOutputFile(sys.argv[1]);
 		probability = getBigramProbability(sys.argv[1]);
