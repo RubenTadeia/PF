@@ -3,7 +3,6 @@
 
 # Processamento da Fala 2016/2017
 # Grupo 8
-#
 
 #Import for sorting
 import operator
@@ -87,6 +86,7 @@ def doVocabularySize(fname):
 			pass
 	return i + 1
 
+
 def doOutputFile(frequentUnigrams, frequentBigrams, numberUnigrams, numberBigrams, vocabSize):
 
 	with open("ngrams_s1.txt", "wt") as fout:
@@ -113,6 +113,7 @@ def doOutputFile(frequentUnigrams, frequentBigrams, numberUnigrams, numberBigram
 		fout.write("10 most frequent bigrams\n")
 		for i in frequentBigrams:
 			fout.write(i+"\n")
+
 
 def numberOfNgrams(fname):
 	with open(fname, "rt") as f:
