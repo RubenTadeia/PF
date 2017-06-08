@@ -1,0 +1,14 @@
+book_</s> 2
+<s>_John 2
+John_read 2
+read_a 2
+a_different 1
+book_by 1
+<s>_I 1
+a_book 1
+by_Mulan 1
+read_her 1
+her_book 1
+different_book 1
+I_read 1
+Mulan_</s> 1

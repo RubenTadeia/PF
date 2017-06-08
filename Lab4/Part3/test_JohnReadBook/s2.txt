@@ -1,0 +1,1 @@
+<s> John read a book </s>

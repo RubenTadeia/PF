@@ -1,0 +1,51 @@
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Made by Group 8:
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Computing the probability of the given test sentence from the file s2.txt
+Without Smoothing with the language model based on the Training
+file s1.txt
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+The Probability Without Smoothing Formula was calculated this way:
+
+Probability(Without Smoothing) = ∑_para_todos_os_bigramas (#ocorrências_do_bigrama) / (#ocorrências_da_primeira_palavra_do_bigrama)
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Compute P(<s> John read a book </s>)
+
+
+C(<s>,John) = 2
+C(<s>) = 3
+Parcial Probability_1 (John|<s>) = 2 / 3 = 0.666666666667
+
+
+C(John,read) = 2
+C(John) = 2
+Parcial Probability_2 (read|John) = 2 / 2 = 1
+
+
+C(read,a) = 2
+C(read) = 3
+Parcial Probability_3 (a|read) = 2 / 3 = 0.666666666667
+
+
+C(a,book) = 1
+C(a) = 2
+Parcial Probability_4 (book|a) = 1 / 2 = 0.5
+
+
+C(book,</s>) = 2
+C(book) = 3
+Parcial Probability_5 (</s>|book) = 2 / 3 = 0.666666666667
+
+
+
+Final Probability is given by:
+P[<s> John read a book </s>] = 0.148148148148
+
+-----------------------------------------------------------------------------------------------------------------------------------

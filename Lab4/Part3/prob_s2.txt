@@ -1,0 +1,56 @@
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Made by Group 8:
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Computing the probability of the given test sentence from the file s2.txt
+Without Smoothing with the language model based on the Training
+file s1.txt
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+The Probability Without Smoothing Formula was calculated this way:
+
+Probability(Without Smoothing) = ∑_para_todos_os_bigramas (#ocorrências_do_bigrama) / (#ocorrências_da_primeira_palavra_do_bigrama)
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Compute P(<s> o filme é uma maravilha </s>)
+
+
+C(<s>,o) = 3156
+C(<s>) = 25075
+Parcial Probability_1 (o|<s>) = 3156 / 25075 = 0.125862412762
+
+
+C(o,filme) = 50
+C(o) = 14005
+Parcial Probability_2 (filme|o) = 50 / 14005 = 0.0035701535166
+
+
+C(filme,é) = 8
+C(filme) = 147
+Parcial Probability_3 (é|filme) = 8 / 147 = 0.0544217687075
+
+
+C(é,uma) = 243
+C(é) = 4075
+Parcial Probability_4 (uma|é) = 243 / 4075 = 0.0596319018405
+
+
+C(uma,maravilha) = 2
+C(uma) = 3043
+Parcial Probability_5 (maravilha|uma) = 2 / 3043 = 0.000657246138679
+
+
+C(maravilha,</s>) = 2
+C(maravilha) = 4
+Parcial Probability_6 (</s>|maravilha) = 2 / 4 = 0.5
+
+
+
+Final Probability is given by:
+P[<s> o filme é uma maravilha </s>] = 4.79217097522e-10
+
+-----------------------------------------------------------------------------------------------------------------------------------

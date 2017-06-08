@@ -1,0 +1,34 @@
+Made by Group 8:
+
+Vocabulary size:
+35938
+
+Number of unigrams
+430091
+
+10 most frequent unigrams
+</s> 25075
+<s> 25075
+de 16152
+o 14005
+a 13691
+que 9844
+e 8753
+do 7420
+da 5864
+para 4601
+
+Number of bigrams
+405016
+
+10 most frequent bigrams
+<s>_o 3156
+<s>_a 2443
+que_o 920
+<s>_os 783
+que_a 705
+com_o 637
+com_a 620
+o_que 617
+para_o 583
+<s>_é 555

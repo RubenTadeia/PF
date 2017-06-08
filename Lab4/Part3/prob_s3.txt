@@ -1,0 +1,127 @@
+--------------------------------------------------------------------------------
+
+Made by Group 8:
+
+--------------------------------------------------------------------------------
+
+Computing the probability of the given test sentence from the file s3.txt
+Without Smoothing with the language model based on the Training
+file s1.txt
+
+--------------------------------------------------------------------------------
+
+The Probability Without Smoothing Formula was calculated this way:
+Probability(Without Smoothing) = 
+
+--------------------------------------------------------------------------------
+
+#ocorrêncas[<s>_o] = 3156
+#ocorrêncas[<s>] = 25075
+PP_1 = 3156 / 25075 = 0.125862
+
+
+#ocorrêncas[o_banco] = 46
+#ocorrêncas[o] = 14005
+PP_2 = 46 / 14005 = 0.003285
+
+
+#ocorrêncas[banco_em] = 1
+#ocorrêncas[banco] = 167
+PP_3 = 1 / 167 = 0.005988
+
+
+#ocorrêncas[em_si] = 4
+#ocorrêncas[em] = 4370
+PP_4 = 4 / 4370 = 0.000915
+
+
+#ocorrêncas[si_não] = 1
+#ocorrêncas[si] = 28
+PP_5 = 1 / 28 = 0.035714
+
+
+#ocorrêncas[não_tem] = 128
+#ocorrêncas[não] = 3868
+PP_6 = 128 / 3868 = 0.033092
+
+
+#ocorrêncas[tem_qualquer] = 3
+#ocorrêncas[tem] = 807
+PP_7 = 3 / 807 = 0.003717
+
+
+#ocorrêncas[qualquer_atrativo] = 1
+#ocorrêncas[qualquer] = 230
+PP_8 = 1 / 230 = 0.004348
+
+
+#ocorrêncas[atrativo_mas] = 1
+#ocorrêncas[atrativo] = 5
+PP_9 = 1 / 5 = 0.200000
+
+
+#ocorrêncas[mas_faz] = 1
+#ocorrêncas[mas] = 1360
+PP_10 = 1 / 1360 = 0.000735
+
+
+#ocorrêncas[faz_parte] = 29
+#ocorrêncas[faz] = 220
+PP_11 = 29 / 220 = 0.131818
+
+
+#ocorrêncas[parte_de] = 38
+#ocorrêncas[parte] = 296
+PP_12 = 38 / 296 = 0.128378
+
+
+#ocorrêncas[de_quase] = 5
+#ocorrêncas[de] = 16152
+PP_13 = 5 / 16152 = 0.000310
+
+
+#ocorrêncas[quase_todos] = 14
+#ocorrêncas[quase] = 151
+PP_14 = 14 / 151 = 0.092715
+
+
+#ocorrêncas[todos_os] = 194
+#ocorrêncas[todos] = 357
+PP_15 = 194 / 357 = 0.543417
+
+
+#ocorrêncas[os_livretos] = 1
+#ocorrêncas[os] = 3857
+PP_16 = 1 / 3857 = 0.000259
+
+
+#ocorrêncas[livretos_e] = 1
+#ocorrêncas[livretos] = 1
+PP_17 = 1 / 1 = 1.000000
+
+
+#ocorrêncas[e_roteiros] = 2
+#ocorrêncas[e] = 8753
+PP_18 = 2 / 8753 = 0.000228
+
+
+#ocorrêncas[roteiros_de] = 2
+#ocorrêncas[roteiros] = 8
+PP_19 = 2 / 8 = 0.250000
+
+
+#ocorrêncas[de_turismo] = 9
+#ocorrêncas[de] = 16152
+PP_20 = 9 / 16152 = 0.000557
+
+
+#ocorrêncas[turismo_</s>] = 5
+#ocorrêncas[turismo] = 26
+PP_21 = 5 / 26 = 0.192308
+
+
+
+Final Probability is given by  ||  P[<s> o banco em si não tem qualquer atrativo mas faz parte de quase todos os livretos e roteiros de turismo </s>
+] = 0.000000
+
+--------------------------------------------------------------------------------
