@@ -35,10 +35,10 @@ SVMPREDICTbin=$binDir/libsvm-3.21/bin/svm-predict
 
 #openSMILE configuration file
 #RUBEN DEBUG
-# openSMILEconfig=$mainDir/config/IS10_paraling.conf
+openSMILEconfig=$mainDir/config/gemaps/GeMAPSv01a.conf
 
-# 99.3664%
-openSMILEconfig=/home/ze/workspace/git/PF/Lab4/Part1/Ruben/opensmile-2.3.0/config/IS13_ComParE_Voc.conf
+# 99.3664% - returns garbage
+# openSMILEconfig=/home/ze/workspace/git/PF/Lab4/Part1/Ruben/opensmile-2.3.0/config/IS13_ComParE_Voc.conf
 
 ## Output configuration
 arffDir=$mainDir/arff/

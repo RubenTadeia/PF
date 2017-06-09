@@ -9,7 +9,7 @@ mainDir=`pwd`
 configTemplate="openSMILEconfig="
 
 
-touch local_config.sh
+cp local_config.sh local_config_save.sh
 
 configDir="/home/ze/workspace/git/PF/Lab4/Part1/Ruben/opensmile-2.3.0/config"
 
@@ -28,11 +28,8 @@ do
 	echo "##################################################################" >> resultsAllConfigs.txt
 	echo "$CONFIG" >> resultsAllConfigs.txt
 	echo " " >>resultsAllConfigs.txt
-	{
-		./LAB4_BASELINE.sh >> resultsAllConfigs.txt
-	} || {
-		continue
-	}
+	./LAB4_BASELINE.sh >> resultsAllConfigs.txt
+	
 done
 
-rm local_config.sh
+mv local_config_save.sh local_config.sh
