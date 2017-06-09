@@ -1,8 +1,6 @@
- 
- 
+
 #################################################################
 ##################################################################
-Fri  9 Jun 11:59:27 WEST 2017
  
  
 ##################################################################
@@ -774,17 +772,6 @@ Accuracy on the test2 set 0% (0/167)
  
 ##################################################################
 /home/ze/workspace/git/PF/Lab4/Part1/Ruben/opensmile-2.3.0/config/emobase.conf
- 
-STEP 0 - CLEAN UP directory of previous results
-STEP 1 - Extract arff data files for TRAIN, DEV and TEST sets
-STEP 2 - Convert arff format files for libsvm format
-STEP 3 - Train LIBSVM model 
-WARNING: training data in only one class. See README for details.
-Total nSV = 0
-STEP 4 - Generate predictions 
-Accuracy on the dev set 0% (0/657)
-Accuracy on the test1 set 0% (0/581)
-Accuracy on the test2 set 0% (0/167)
  
 STEP 0 - CLEAN UP directory of previous results
 STEP 1 - Extract arff data files for TRAIN, DEV and TEST sets
