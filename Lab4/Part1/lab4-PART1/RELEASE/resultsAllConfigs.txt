@@ -1,0 +1,75 @@
+#################################################################
+##################################################################
+ 
+ 
+##################################################################
+/home/ze/workspace/git/PF/Lab4/Part1/Ruben/opensmile-2.3.0/config/PLP_E_D_A.conf
+ 
+STEP 0 - CLEAN UP directory of previous results
+STEP 1 - Extract arff data files for TRAIN, DEV and TEST sets
+STEP 2 - Convert arff format files for libsvm format
+Inconsistent TRAIN and dev label numbering -- CORRECT!!
+ 
+##################################################################
+/home/ze/workspace/git/PF/Lab4/Part1/Ruben/opensmile-2.3.0/config/prosodyShs.conf
+ 
+STEP 0 - CLEAN UP directory of previous results
+STEP 1 - Extract arff data files for TRAIN, DEV and TEST sets
+STEP 2 - Convert arff format files for libsvm format
+Inconsistent TRAIN and dev label numbering -- CORRECT!!
+ 
+##################################################################
+/home/ze/workspace/git/PF/Lab4/Part1/Ruben/opensmile-2.3.0/config/avec2011.conf
+ 
+STEP 0 - CLEAN UP directory of previous results
+STEP 1 - Extract arff data files for TRAIN, DEV and TEST sets
+STEP 2 - Convert arff format files for libsvm format
+STEP 3 - Train LIBSVM model 
+WARNING: training data in only one class. See README for details.
+Total nSV = 0
+STEP 4 - Generate predictions 
+Accuracy on the dev set 0% (0/657)
+Accuracy on the test1 set 0% (0/581)
+Accuracy on the test2 set 0% (0/167)
+ 
+##################################################################
+/home/ze/workspace/git/PF/Lab4/Part1/Ruben/opensmile-2.3.0/config/prosodyShsViterbiLoudness.conf
+ 
+STEP 0 - CLEAN UP directory of previous results
+STEP 1 - Extract arff data files for TRAIN, DEV and TEST sets
+STEP 2 - Convert arff format files for libsvm format
+STEP 3 - Train LIBSVM model 
+..
+WARNING: using -h 0 may be faster
+*....
+WARNING: using -h 0 may be faster
+*
+optimization finished, #iter = 6330
+nu = 0.421969
+obj = -629.999733, rho = -1.002290
+nSV = 760, nBSV = 543
+Total nSV = 760
+STEP 4 - Generate predictions 
+Accuracy on the dev set 76.1035% (500/657)
+Accuracy on the test1 set 0% (0/581)
+Accuracy on the test2 set 0% (0/167)
+ 
+##################################################################
+/home/ze/workspace/git/PF/Lab4/Part1/Ruben/opensmile-2.3.0/config/IS13_ComParE_Voc.conf
+ 
+STEP 0 - CLEAN UP directory of previous results
+STEP 1 - Extract arff data files for TRAIN, DEV and TEST sets
+STEP 2 - Convert arff format files for libsvm format
+STEP 3 - Train LIBSVM model 
+WARNING: training data in only one class. See README for details.
+Total nSV = 0
+STEP 4 - Generate predictions 
+Accuracy on the dev set 99.3664% (103035/103692)
+Accuracy on the test1 set 99.3977% (95889/96470)
+Accuracy on the test2 set 99.6066% (42287/42454)
+ 
+##################################################################
+/home/ze/workspace/git/PF/Lab4/Part1/Ruben/opensmile-2.3.0/config/mediaeval2012_tum_affect/MediaEval_Audio_IS12based_subwin2_step0.5.conf
+ 
+STEP 0 - CLEAN UP directory of previous results
+STEP 1 - Extract arff data files for TRAIN, DEV and TEST sets
