@@ -22,163 +22,163 @@ Compute P(<s> o rapaz foi ótimo no estúdio em abril admitiu a necessidade de a
 Vocabulary Size = 35938
 C(<s>,o) = 3156
 C(<s>) = 25075
-Parcial Probability_1 (o|<s>) = ( 3156 + 1 ) / ( 25075 +  ) = 0.0517430711488
+Parcial Probability_1 (o|<s>) = ( 3156 + 1 ) / ( 25075 + 35938 ) = 0.0517430711488
 
 
 Vocabulary Size = 35938
 C(o,rapaz) = 6
 C(o) = 14005
-Parcial Probability_2 (rapaz|o) = ( 6 + 1 ) / ( 14005 +  ) = 0.000140159782152
+Parcial Probability_2 (rapaz|o) = ( 6 + 1 ) / ( 14005 + 35938 ) = 0.000140159782152
 
 
 Vocabulary Size = 35938
 C(rapaz,foi) = 1
 C(rapaz) = 16
-Parcial Probability_3 (foi|rapaz) = ( 1 + 1 ) / ( 16 +  ) = 5.56266340324e-05
+Parcial Probability_3 (foi|rapaz) = ( 1 + 1 ) / ( 16 + 35938 ) = 5.56266340324e-05
 
 
 Vocabulary Size = 35938
 C(foi,ótimo) = 2
 C(foi) = 1397
-Parcial Probability_4 (ótimo|foi) = ( 2 + 1 ) / ( 1397 +  ) = 8.03535556448e-05
+Parcial Probability_4 (ótimo|foi) = ( 2 + 1 ) / ( 1397 + 35938 ) = 8.03535556448e-05
 
 
 Vocabulary Size = 35938
 C(ótimo,no) = 1
 C(ótimo) = 16
-Parcial Probability_5 (no|ótimo) = ( 1 + 1 ) / ( 16 +  ) = 5.56266340324e-05
+Parcial Probability_5 (no|ótimo) = ( 1 + 1 ) / ( 16 + 35938 ) = 5.56266340324e-05
 
 
 Vocabulary Size = 35938
 C(no,estúdio) = 5
 C(no) = 3506
-Parcial Probability_6 (estúdio|no) = ( 5 + 1 ) / ( 3506 +  ) = 0.000152114390021
+Parcial Probability_6 (estúdio|no) = ( 5 + 1 ) / ( 3506 + 35938 ) = 0.000152114390021
 
 
 Vocabulary Size = 35938
 C(estúdio,em) = 1
 C(estúdio) = 15
-Parcial Probability_7 (em|estúdio) = ( 1 + 1 ) / ( 15 +  ) = 5.56281812366e-05
+Parcial Probability_7 (em|estúdio) = ( 1 + 1 ) / ( 15 + 35938 ) = 5.56281812366e-05
 
 
 Vocabulary Size = 35938
 C(em,abril) = 20
 C(em) = 4370
-Parcial Probability_8 (abril|em) = ( 20 + 1 ) / ( 4370 +  ) = 0.000520988389402
+Parcial Probability_8 (abril|em) = ( 20 + 1 ) / ( 4370 + 35938 ) = 0.000520988389402
 
 
 Vocabulary Size = 35938
 C(abril,admitiu) = 1
 C(abril) = 33
-Parcial Probability_9 (admitiu|abril) = ( 1 + 1 ) / ( 33 +  ) = 5.56003447221e-05
+Parcial Probability_9 (admitiu|abril) = ( 1 + 1 ) / ( 33 + 35938 ) = 5.56003447221e-05
 
 
 Vocabulary Size = 35938
 C(admitiu,a) = 3
 C(admitiu) = 18
-Parcial Probability_10 (a|admitiu) = ( 3 + 1 ) / ( 18 +  ) = 0.000111247079764
+Parcial Probability_10 (a|admitiu) = ( 3 + 1 ) / ( 18 + 35938 ) = 0.000111247079764
 
 
 Vocabulary Size = 35938
 C(a,necessidade) = 25
 C(a) = 13691
-Parcial Probability_11 (necessidade|a) = ( 25 + 1 ) / ( 13691 +  ) = 0.000523887243346
+Parcial Probability_11 (necessidade|a) = ( 25 + 1 ) / ( 13691 + 35938 ) = 0.000523887243346
 
 
 Vocabulary Size = 35938
 C(necessidade,de) = 34
 C(necessidade) = 58
-Parcial Probability_12 (de|necessidade) = ( 34 + 1 ) / ( 58 +  ) = 0.000972330258918
+Parcial Probability_12 (de|necessidade) = ( 34 + 1 ) / ( 58 + 35938 ) = 0.000972330258918
 
 
 Vocabulary Size = 35938
 C(de,aprender) = 2
 C(de) = 16152
-Parcial Probability_13 (aprender|de) = ( 2 + 1 ) / ( 16152 +  ) = 5.75926281436e-05
+Parcial Probability_13 (aprender|de) = ( 2 + 1 ) / ( 16152 + 35938 ) = 5.75926281436e-05
 
 
 Vocabulary Size = 35938
 C(aprender,um) = 1
 C(aprender) = 17
-Parcial Probability_14 (um|aprender) = ( 1 + 1 ) / ( 17 +  ) = 5.56250869142e-05
+Parcial Probability_14 (um|aprender) = ( 1 + 1 ) / ( 17 + 35938 ) = 5.56250869142e-05
 
 
 Vocabulary Size = 35938
 C(um,monte) = 5
 C(um) = 3835
-Parcial Probability_15 (monte|um) = ( 5 + 1 ) / ( 3835 +  ) = 0.000150856108415
+Parcial Probability_15 (monte|um) = ( 5 + 1 ) / ( 3835 + 35938 ) = 0.000150856108415
 
 
 Vocabulary Size = 35938
 C(monte,de) = 5
 C(monte) = 13
-Parcial Probability_16 (de|monte) = ( 5 + 1 ) / ( 13 +  ) = 0.00016689382771
+Parcial Probability_16 (de|monte) = ( 5 + 1 ) / ( 13 + 35938 ) = 0.00016689382771
 
 
 Vocabulary Size = 35938
 C(de,novos) = 14
 C(de) = 16152
-Parcial Probability_17 (novos|de) = ( 14 + 1 ) / ( 16152 +  ) = 0.000287963140718
+Parcial Probability_17 (novos|de) = ( 14 + 1 ) / ( 16152 + 35938 ) = 0.000287963140718
 
 
 Vocabulary Size = 35938
 C(novos,termos) = 1
 C(novos) = 92
-Parcial Probability_18 (termos|novos) = ( 1 + 1 ) / ( 92 +  ) = 5.55092978074e-05
+Parcial Probability_18 (termos|novos) = ( 1 + 1 ) / ( 92 + 35938 ) = 5.55092978074e-05
 
 
 Vocabulary Size = 35938
 C(termos,amorosos) = 1
 C(termos) = 37
-Parcial Probability_19 (amorosos|termos) = ( 1 + 1 ) / ( 37 +  ) = 5.55941626129e-05
+Parcial Probability_19 (amorosos|termos) = ( 1 + 1 ) / ( 37 + 35938 ) = 5.55941626129e-05
 
 
 Vocabulary Size = 35938
 C(amorosos,para) = 1
 C(amorosos) = 2
-Parcial Probability_20 (para|amorosos) = ( 1 + 1 ) / ( 2 +  ) = 5.56483027268e-05
+Parcial Probability_20 (para|amorosos) = ( 1 + 1 ) / ( 2 + 35938 ) = 5.56483027268e-05
 
 
 Vocabulary Size = 35938
 C(para,experimentar) = 1
 C(para) = 4601
-Parcial Probability_21 (experimentar|para) = ( 1 + 1 ) / ( 4601 +  ) = 4.93352080712e-05
+Parcial Probability_21 (experimentar|para) = ( 1 + 1 ) / ( 4601 + 35938 ) = 4.93352080712e-05
 
 
 Vocabulary Size = 35938
 C(experimentar,com) = 1
 C(experimentar) = 5
-Parcial Probability_22 (com|experimentar) = ( 1 + 1 ) / ( 5 +  ) = 5.56436580141e-05
+Parcial Probability_22 (com|experimentar) = ( 1 + 1 ) / ( 5 + 35938 ) = 5.56436580141e-05
 
 
 Vocabulary Size = 35938
 C(com,as) = 108
 C(com) = 3598
-Parcial Probability_23 (as|com) = ( 108 + 1 ) / ( 3598 +  ) = 0.00275698097936
+Parcial Probability_23 (as|com) = ( 108 + 1 ) / ( 3598 + 35938 ) = 0.00275698097936
 
 
 Vocabulary Size = 35938
 C(as,jennifers) = 1
 C(as) = 2352
-Parcial Probability_24 (jennifers|as) = ( 1 + 1 ) / ( 2352 +  ) = 5.22329589971e-05
+Parcial Probability_24 (jennifers|as) = ( 1 + 1 ) / ( 2352 + 35938 ) = 5.22329589971e-05
 
 
 Vocabulary Size = 35938
 C(jennifers,de) = 1
 C(jennifers) = 1
-Parcial Probability_25 (de|jennifers) = ( 1 + 1 ) / ( 1 +  ) = 5.56498511366e-05
+Parcial Probability_25 (de|jennifers) = ( 1 + 1 ) / ( 1 + 35938 ) = 5.56498511366e-05
 
 
 Vocabulary Size = 35938
 C(de,sampa) = 1
 C(de) = 16152
-Parcial Probability_26 (sampa|de) = ( 1 + 1 ) / ( 16152 +  ) = 3.83950854291e-05
+Parcial Probability_26 (sampa|de) = ( 1 + 1 ) / ( 16152 + 35938 ) = 3.83950854291e-05
 
 
 Vocabulary Size = 35938
 C(sampa,</s>) = 1
 C(sampa) = 3
-Parcial Probability_27 (</s>|sampa) = ( 1 + 1 ) / ( 3 +  ) = 5.5646754403e-05
+Parcial Probability_27 (</s>|sampa) = ( 1 + 1 ) / ( 3 + 35938 ) = 5.5646754403e-05
 
 
 

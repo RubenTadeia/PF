@@ -52,7 +52,7 @@ def getBigramProbability(testFile):
 		vocabularyAuxiliar = VocabularySize.split('\n') # This variable is used to remove the \n
 		VocabularySize = vocabularyAuxiliar[0];
 		outputFileName = "prob_smoothing_" + testFile;
-		templateToWrite = "C(%s) = %s\nC(%s) = %s\nParcial Probability_%d (%s|%s) = ( %s + 1 ) / ( %s +  ) = %.12g\n\n"
+		templateToWrite = "C(%s) = %s\nC(%s) = %s\nParcial Probability_%d (%s|%s) = ( %s + 1 ) / ( %s + %s ) = %.12g\n\n"
 		finalTemplateToWrite = "\nFinal Probability is given by:\nP[%s] = %.12g\n"
 		portion = 0.0; # Portion is a variable that stores
 				# the small value of probability to calculate
@@ -86,7 +86,7 @@ def getBigramProbability(testFile):
 
 				lineToWrite = templateToWrite % (bigramSpaced, frequencyBigram,
 				words[i],frequencyUnigram,iterator,words[i+1], words[i],
-				frequencyBigram ,frequencyUnigram, portion);
+				frequencyBigram ,frequencyUnigram, VocabularySize, portion);
 
 				iterator = iterator + 1;
 				insertLineOutputFile(outputFileName,lineToWrite);

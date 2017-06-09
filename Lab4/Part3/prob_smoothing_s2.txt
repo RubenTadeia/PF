@@ -22,37 +22,37 @@ Compute P(<s> o filme é uma maravilha </s>)
 Vocabulary Size = 35938
 C(<s>,o) = 3156
 C(<s>) = 25075
-Parcial Probability_1 (o|<s>) = ( 3156 + 1 ) / ( 25075 +  ) = 0.0517430711488
+Parcial Probability_1 (o|<s>) = ( 3156 + 1 ) / ( 25075 + 35938 ) = 0.0517430711488
 
 
 Vocabulary Size = 35938
 C(o,filme) = 50
 C(o) = 14005
-Parcial Probability_2 (filme|o) = ( 50 + 1 ) / ( 14005 +  ) = 0.0010211641271
+Parcial Probability_2 (filme|o) = ( 50 + 1 ) / ( 14005 + 35938 ) = 0.0010211641271
 
 
 Vocabulary Size = 35938
 C(filme,é) = 8
 C(filme) = 147
-Parcial Probability_3 (é|filme) = ( 8 + 1 ) / ( 147 +  ) = 0.000249411112651
+Parcial Probability_3 (é|filme) = ( 8 + 1 ) / ( 147 + 35938 ) = 0.000249411112651
 
 
 Vocabulary Size = 35938
 C(é,uma) = 243
 C(é) = 4075
-Parcial Probability_4 (uma|é) = ( 243 + 1 ) / ( 4075 +  ) = 0.0060980181441
+Parcial Probability_4 (uma|é) = ( 243 + 1 ) / ( 4075 + 35938 ) = 0.0060980181441
 
 
 Vocabulary Size = 35938
 C(uma,maravilha) = 2
 C(uma) = 3043
-Parcial Probability_5 (maravilha|uma) = ( 2 + 1 ) / ( 3043 +  ) = 7.69605705344e-05
+Parcial Probability_5 (maravilha|uma) = ( 2 + 1 ) / ( 3043 + 35938 ) = 7.69605705344e-05
 
 
 Vocabulary Size = 35938
 C(maravilha,</s>) = 2
 C(maravilha) = 4
-Parcial Probability_6 (</s>|maravilha) = ( 2 + 1 ) / ( 4 +  ) = 8.34678092482e-05
+Parcial Probability_6 (</s>|maravilha) = ( 2 + 1 ) / ( 4 + 35938 ) = 8.34678092482e-05
 
 
 
