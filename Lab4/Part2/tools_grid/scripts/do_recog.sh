@@ -74,7 +74,9 @@ if [ ! -r "$wdnet" ]; then
    HParse $REC_ROOT/etc/grammar $wdnet
 fi
 
-MIX="7mix"
+MIX="3mix"
+# MIX="5mix"
+# MIX="7mix"
 
 RESDIR="$REC_ROOT/results/${SETNAME}_${MODELNAME}"
 mkdir -p $RESDIR
@@ -84,15 +86,23 @@ rm -f $RESFILE
 #echo "Decoding $SETNAME set using $MODELNAME models"
 TRACE="0"
 # Dynamically generate test list and select HMMs for each speaker ID for Speaker Dependent decoding
+echo ""
+echo "========================= Performing Recognition ==============================="
 for SID in `seq 34`; do
-    echo "DO_RECOG ID: $SID is being processed..."
-    
     testlist="$TMPDIR/testlist.id$SID.$TMPID"
 #    grep "s${SID}_" $flist | awk '{printf("'$FEAT_ROOT'/%s.'$FEAT_TYPE'\n", $1)}' > $testlist
      awk '{printf("'$FEAT_ROOT'/'id$SID'/%s.'$FEAT_TYPE'\n", $1)}' $REC_ROOT/flists/test_id$SID.list > $testlist
     
-     #FOR SPEAKER INDEPENDET CHANGE LINE (ZE)
+# Change lines for speaker adapted and independent
+#---------------------------------------------------
+# ------- Speaker Adapted ------------------------
     hmms="$HMMROOT/id$SID/hmm$MIX.d/newMacros"
+
+# --------Speaker Independent ----------------------
+    # hmms="$HMMROOT/SI/hmm$MIX.d/newMacros"
+
+# --------------------------------------------------
+
 #    echo $hmms
     if [ ! -r "$hmms" ]; then
         echo "Unable to access HMM file: $hmms"
@@ -100,6 +110,7 @@ for SID in `seq 34`; do
         exit
     fi
     recogmlf="$TMPDIR/SD_baseline.$TMPID.id$ID.mlf"
+    echo "-------- Starting HVite for Speaker $SID --------"
     $CMD_HVite -T $TRACE -C $config -o ST -l '*' -H $hmms -S $testlist -i $recogmlf -w $wdnet $dict $wdlist > /dev/null
     awk -f $REC_ROOT/scripts/fmtmlf.awk $recogmlf >> $RESFILE
 #    rm -f $testlist $recogmlf

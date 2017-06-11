@@ -73,7 +73,10 @@ TMPDIR="$REC_ROOT/scripts/tmp"
 TMPID="$FEAT_TYPE.`hostname`.`date +%Y%m%d.%H%M`.$$"
 
 TRACE="0"
-SDMIX="7"
+
+# Change here too
+SDMIX="3"
+
 SIHMM="$HMMROOT/hmm${SDMIX}mix.d/newMacros"
 #if [ ! -r $SIHMM ]; then #----SIHMM
 
@@ -140,9 +143,9 @@ done
 rm -rf $HMMROOT/hmm1mix.0 $HMMROOT/hmm1mix.a $HMMROOT/hmm1mix.b $HMMROOT/hmm1mix.c
 
 prevdir="$curdir"
+# for mix in 2 3 5 7; do
 # for mix in 2 3 5; do
-for mix in 2 3 5 7; do
-# for mix in 2 3; do
+for mix in 2 3; do
     echo ""
     echo "    Splitting the models to $mix mix..."
     curdir=$HMMROOT/hmm${mix}mix.0

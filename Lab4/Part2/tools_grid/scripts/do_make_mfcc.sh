@@ -34,50 +34,42 @@ fi
 #========================================================
 # Main Script 
 #========================================================
-for ids in `seq 34`; do
+if [ ! $# -eq 2 ]; then
+    echo "Usage: $0 WAV_DIR FEAT_DIR"
+    echo "       WAV_DIR   - directory that contains wav files"
+    echo "       FEAT_DIR  - directory where feature files will be stored"
+    exit
+fi
+WAV_DIR=$1
+FEAT_DIR=$2
 
-    if [ ! $# -eq 2 ]; then
-        echo "Usage: $0 WAV_DIR FEAT_DIR"
-        echo "       WAV_DIR   - directory that contains wav files"
-        echo "       FEAT_DIR  - directory where feature files will be stored"
-        exit
-    fi
-    WAV_DIR=$1
-    FEAT_DIR=$2
+config="$REC_ROOT/etc/config_code.$FEAT_TYPE"
+if [ ! -f $config ]; then
+    echo "Unable to access HCopy config file $config"
+    exit
+fi
 
-    echo "DO_MAKE_MFCC ID: $ids is being processed..."
+if [ ! -d $WAV_DIR ]; then
+    echo "Unable to access wav dir $WAV_DIR"
+    exit
+fi
+mkdir -p $FEAT_DIR
+if [ ! -d $FEAT_DIR ]; then
+    echo "Unable to create feature dir $FEAT_DIR"
+    exit 
+fi
 
-    config="$REC_ROOT/etc/config_code.$FEAT_TYPE"
-    if [ ! -f $config ]; then
-        echo "Unable to access HCopy config file $config"
-        exit
-    fi
+TMPID="$FEAT_TYPE.`hostname`.`date +%Y%m%d.%H%M`.$$"
+TMPDIR="$REC_ROOT/scripts/tmp"
+mkdir -p $TMPDIR
 
-    if [ ! -d $WAV_DIR ]; then
-        echo "Unable to access wav dir $WAV_DIR"
-        exit
-    fi
-    mkdir -p $FEAT_DIR
-    if [ ! -d $FEAT_DIR ]; then
-        echo "Unable to create feature dir $FEAT_DIR"
-        exit 
-    fi
+flist="$TMPDIR/feature_list.$TMPID"
+ls $WAV_DIR | grep wav$ | sed 's/\.wav$//' > $flist
 
-    mkdir -p $FEAT_DIR/"id"$ids
-    FEAT_DIR=$FEAT_DIR/"id"$ids
-    WAV_DIR=$WAV_DIR/"id"$ids
+listscp="$TMPDIR/hcopy_$SETNAME.$TMPID.scp"
+awk '{printf("'$WAV_DIR'/%s.wav '$FEAT_DIR'/%s.'$FEAT_TYPE'\n", $1, $1)}' $flist > $listscp
+$CMD_HCopy -T 0 -C $config -S $listscp
 
-    TMPID="$FEAT_TYPE.`hostname`.`date +%Y%m%d.%H%M`.$$"
-    TMPDIR="$REC_ROOT/scripts/tmp"
-    mkdir -p $TMPDIR
+# House cleaning
+rm -f $listscp $flist
 
-    flist="$TMPDIR/feature_list.$TMPID"
-    ls $WAV_DIR | grep wav$ | sed 's/\.wav$//' > $flist
-
-    listscp="$TMPDIR/hcopy_$SETNAME.$TMPID.scp"
-    awk '{printf("'$WAV_DIR'/%s.wav '$FEAT_DIR'/%s.'$FEAT_TYPE'\n", $1, $1)}' $flist > $listscp
-    $CMD_HCopy -T 0 -C $config -S $listscp
-
-    # House cleaning
-    rm -f $listscp $flist
-done
