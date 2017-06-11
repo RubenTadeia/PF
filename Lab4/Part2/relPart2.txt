@@ -45,12 +45,12 @@ Para o conjunto de "dev":
 
 Para o conjunto de "test":
 	A taxa de sucesso para 5 mix foi de:
-		adaptado -> 
-		independente ->
+		adaptado -> 94.2364%
+		independente -> 87.5711%
 
 	A taxa de sucesso para 7 mix foi de:
-		adaptado ->
-		independente ->
+		adaptado -> 94.6971%
+		independente -> 90.1000%
 
 Os ficheiros dos resultados para cada tipo de reconhecimento encontra-se em "results/testXX_trainYmix/testXX_trainYmix.txt", onde XX toma valores SA ou SI para oradores (speakers) adaptados ou independentes. O valor Y pode ser 3, 5 ou 7 para o número de misturas.
 
@@ -69,4 +69,4 @@ A taxa de sucesso para 7 mix foi de:
 
 5)
 
-Para concluir esta segunda parte do trabalho laboratorial, foi executado o reconhecedor em alinhamento forçado. Para a resolução desta alínea foi programado o script do_simplesForceAlign.sh para orador independente e foi escolhido um MIX de XXXXXXXXXXXXXXXXXXXXX pois foi o que apresentou melhor taxa de sucesso na alínea 4. 
+Para concluir esta segunda parte do trabalho laboratorial, foi executado o reconhecedor em alinhamento forçado. Para a resolução desta alínea foi programado o script do_simplesForceAlign.sh para orador independente e foi escolhido um MIX de 7 pois foi o que apresentou melhor taxa de sucesso na alínea 4. 
