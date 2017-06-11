@@ -17,13 +17,15 @@ Na primeira fase deste trabalho foram executados os scripts da baseline sem qual
 	6 - ./scripts/do_recog.sh mfcc train3mix testSA features/mfcc/test/
 
 Alterando o script do_recog.sh nos locais apropriados (estão devidamente comentados no próprio script), passámos para um modelo de orador independente, passando a utilizar esse mesmo modelo para todos os 34 speakers. Modelo esse que se encontra em "models/train/SI/". Através da execução da instrução 7 obtivemos as seguintes taxas de sucesso para mix de 3:
-Para o conjunto de "test":
-	adaptado -> 93.2758%
-	independente -> 83.7875%
 
 Para o conjunto de "dev":
 	adaptado -> 
 	independente -> 
+
+	
+Para o conjunto de "test":
+	adaptado -> 93.2758%
+	independente -> 83.7875%
 
 	7 - ./scripts/do_recog.sh mfcc train3mix testSI features/mfcc/test/
 
@@ -31,7 +33,7 @@ Para o conjunto de "dev":
 
 Neste momento do trabalho, para melhorar a taxa de sucesso do reconhecedor, programou-se o script do_allMixturesAndSpeakerType.sh para podermos analisar as resultantes taxas de sucesso que provêm dessas alterações. Os parâmetros testados pelo scripts incluem 5 e 7 misturas de hmm e variar o orador de adaptativo para independente. As taxas de sucesso para todos os casos testados podem ser observados de seguida:
 
-Para o conjunto de "test":
+Para o conjunto de "dev":
 	A taxa de sucesso para 5 mix foi de:
 		adaptado -> 
 		independente ->
@@ -41,7 +43,7 @@ Para o conjunto de "test":
 		independente ->
 
 
-Para o conjunto de "dev":
+Para o conjunto de "test":
 	A taxa de sucesso para 5 mix foi de:
 		adaptado -> 
 		independente ->
