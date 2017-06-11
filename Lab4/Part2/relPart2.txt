@@ -1,0 +1,70 @@
+GRUPO 8
+José Oliveira
+Rúben Tadeia
+
+
+Esta parte do trabalho laboratorial tem como objectivo simular um sistema automático de reconhecimento de palavras isoladas com adaptação ao orador através da ferramenta HTK. Com esta ferramenta é possível construir modelos de Markov não observáveis, permitindo gerar reconhecedores no âmbito de processamento da fala.
+
+2)
+
+Na primeira fase deste trabalho foram executados os scripts da baseline sem qualquer modificação. A sequência de instruções para executar a baseline encontra-se no script do_baseline.sh. Desta forma podemos correr a baseline com a instrução "./scripts/do_baseline.sh" na raiz do tool_grid. Os resultados do reconhecimento encontram-se em "results/testSA_train3mix/testSA_train3mix.txt". As instruções seguintes (1-6) ilustram o conteúdo da nossa baseline.
+	
+	1 - ./scripts/build_flists_train.sh
+	2 - ./scripts/build_flists_test.sh
+	3 - ./scripts/do_mfcc_train.sh
+	4 - ./scripts/do_mfcc_test.sh
+	5 - ./scripts/do_train.sh train3mix mfcc features/mfcc/train
+	6 - ./scripts/do_recog.sh mfcc train3mix testSA features/mfcc/test/
+
+Alterando o script do_recog.sh nos locais apropriados (estão devidamente comentados no próprio script), passámos para um modelo de orador independente, passando a utilizar esse mesmo modelo para todos os 34 speakers. Modelo esse que se encontra em "models/train/SI/". Através da execução da instrução 7 obtivemos as seguintes taxas de sucesso para mix de 3:
+Para o conjunto de "test":
+	adaptado -> 93.2758%
+	independente -> 83.7875%
+
+Para o conjunto de "dev":
+	adaptado -> 
+	independente -> 
+
+	7 - ./scripts/do_recog.sh mfcc train3mix testSI features/mfcc/test/
+
+3)
+
+Neste momento do trabalho, para melhorar a taxa de sucesso do reconhecedor, programou-se o script do_allMixturesAndSpeakerType.sh para podermos analisar as resultantes taxas de sucesso que provêm dessas alterações. Os parâmetros testados pelo scripts incluem 5 e 7 misturas de hmm e variar o orador de adaptativo para independente. As taxas de sucesso para todos os casos testados podem ser observados de seguida:
+
+Para o conjunto de "test":
+	A taxa de sucesso para 5 mix foi de:
+		adaptado -> 
+		independente ->
+
+	A taxa de sucesso para 7 mix foi de:
+		adaptado ->
+		independente ->
+
+
+Para o conjunto de "dev":
+	A taxa de sucesso para 5 mix foi de:
+		adaptado -> 
+		independente ->
+
+	A taxa de sucesso para 7 mix foi de:
+		adaptado ->
+		independente ->
+
+Os ficheiros dos resultados para cada tipo de reconhecimento encontra-se em "results/testXX_trainYmix/testXX_trainYmix.txt", onde XX toma valores SA ou SI para oradores (speakers) adaptados ou independentes. O valor Y pode ser 3, 5 ou 7 para o número de misturas.
+
+4)
+
+Nesta fase do trabalho, alterámos a gramática e o dicionário para reconhecer matrículas no formato "número número letra letra número número". Estas alterações foram feitas nos ficheiros grammar2, dict2 e wdlist2 na directoria "etc/". Por cada elemento do grupo foram gravadas 10 matrículas diferentes que se encontram em "data/test2/idZ/". Tendo Z o valor 1 ou 2 consoante o aluno do grupo que fez as gravações. Os ficheiros que resultaram do reconhecimento para estas gravações estão em "results/plateSI_train3mix/plateSI_train3mix.txt". Neste caso, os resultados são apenas considerados no contexto de orador independente uma vez que nenhum dos alunos faz parte dos oradores do treino.
+
+A taxa de sucesso para 3 mix foi de:
+	->
+A taxa de sucesso para 5 mix foi de:
+	->
+A taxa de sucesso para 7 mix foi de:
+	->
+
+
+
+5)
+
+Para concluir esta segunda parte do trabalho laboratorial, foi executado o reconhecedor em alinhamento forçado. Para a resolução desta alínea foi programado o script do_simplesForceAlign.sh para orador independente e foi escolhido um MIX de XXXXXXXXXXXXXXXXXXXXX pois foi o que apresentou melhor taxa de sucesso na alínea 4. 
