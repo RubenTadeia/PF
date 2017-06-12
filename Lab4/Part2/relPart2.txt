@@ -41,7 +41,13 @@ Os ficheiros dos resultados para cada tipo de reconhecimento encontra-se em "res
 
 4)
 
-Nesta fase do trabalho, alterámos a gramática e o dicionário para reconhecer matrículas no formato "número número letra letra número número". Estas alterações foram feitas nos ficheiros grammar2, dict2 e wdlist2 na directoria "etc/". Por cada elemento do grupo foram gravadas 10 matrículas diferentes que se encontram em "data/test2/idZ/". Tendo Z o valor 1 ou 2 consoante o aluno do grupo que fez as gravações. Os ficheiros que resultaram do reconhecimento para estas gravações estão em "results/plateSI_train3mix/plateSI_train3mix.txt". Neste caso, os resultados são apenas considerados no contexto de orador independente uma vez que nenhum dos alunos faz parte dos oradores do treino.
+Nesta fase do trabalho, alterámos a gramática e o dicionário para reconhecer matrículas no formato "número número letra letra número número". Estas alterações foram feitas nos ficheiros grammar2, dict2 e wdlist2 na directoria "etc/". Por cada elemento do grupo foram gravadas 10 matrículas diferentes que se encontram em "data/test2/idZ/". Tendo Z o valor 1 ou 2 consoante o aluno do grupo que fez as gravações. Os ficheiros que resultaram do reconhecimento para estas gravações estão em 
+
+-----
+"labels/idY" (Y=1,2), os ficheiros das taxas de sucesso estão em "results/plateSI_trainXmix.txt" (X=3,5,7).
+--------
+
+ Neste caso, os resultados são apenas considerados no contexto de orador independente uma vez que nenhum dos alunos faz parte dos oradores do treino.
 
 A taxa de sucesso para 3 mix foi de:
 	-> 14.2857%
@@ -57,3 +63,11 @@ A taxa de sucesso para 7 mix foi de:
 Para concluir esta segunda parte do trabalho laboratorial, foi executado o reconhecedor em alinhamento forçado. Para a resolução desta alínea foi programado o script do_simplesForceAlign.sh para orador independente e foi escolhido um MIX de 7 pois foi o que apresentou melhor taxa de sucesso na alínea 4. Tal como referido na alínea anterior, cada aluno gravou 10 matrículas diferentes. Os ficheiros das labels estão em "labels/plates/". Os ficheiros que resultaram estão na directoria "forced_alignments/".
 Para podermos analisar os resultados destes alinhamentos, foi criado o script mlfToLab.sh que remove o conteúdo que o wavesurfer não reconhece e retorna todos os ficheiros presentes no "forced_alignments/" em "forced_alignmentsLAB/".
 Abrindo o wavesurfer para analisar os ficheiros com as suas transcrições, podemos inferir que o HVite desempenha um alinhamento bastante correcto das labels.
+
+
+
+
+Conclusao)
+
+Pelos dados obtidos durante a execução de cada uma das tarefas, podemos observar uma taxa de sucesso mais elevada do reconhecedor utilizando modelos adaptados para cada orador. Seria de esperar que isto acontecesse, uma vez que conhecemos a que oradores pertencem cada uma das gravações. 
+Quando passaram a ser os elementos do grupo os oradores de teste, só importa utilizar um modelo independente pois não pertencemos aos 34 oradores de treino.
