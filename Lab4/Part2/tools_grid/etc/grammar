@@ -1,0 +1,7 @@
+$verb=bin|lay|place|set;
+$colour=blue|green|red|white;
+$prep=at|by|in|with;                                     
+$letter=a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|x|y|z;
+$number=zero|one|two|three|four|five|six|seven|eight|nine;
+$coda=again|now|please|soon;
+( sil $verb $colour $prep $letter $number $coda sil )
