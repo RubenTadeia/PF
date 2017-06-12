@@ -1,0 +1,22 @@
+
+70ma10    n 8 
+75ch46    n 5 
+62nb40    c 5 
+17ad92    y 8 
+24lg05    r 4 
+19fs60    y z 
+57bc15    i 1 
+52fa71    a 7 
+26dg29    l 8 
+45el79    r 5 
+24gt50    e 5 
+73lk41    e 4 
+53se82    a 7 
+25xa69    n 5 
+12qd03    q 1 
+43rm16    e 4 
+75fb54    e 5 
+91na76    n z 
+31as56    a 5 
+32nf85    v 1 
+    Keyword recognition accuracy = 21.4286%
